@@ -1,0 +1,5 @@
+<?php /* Smarty version 2.6.12, created on 2013-07-11 09:01:37
+         compiled from reservation_location_regist_location_name.html */ ?>
+<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'reservation_location_regist_location_name.html', 4, false),)), $this); ?>
+<?php echo '<th scope="row" class="nowrap"><label for="location_name';  echo ((is_array($_tmp=$this->_tpl_vars['id'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '">';  echo $this->_tpl_vars['lang']['reservation_location_name'];  echo '</label></th><td><input id="location_name';  echo ((is_array($_tmp=$this->_tpl_vars['id'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '" class="text" type="text" name="location_name" value="';  echo ((is_array($_tmp=$this->_tpl_vars['location']['location_name'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '" /></td>'; ?>

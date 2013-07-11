@@ -1,0 +1,5 @@
+<?php /* Smarty version 2.6.12, created on 2013-07-11 09:01:37
+         compiled from quiz_view_mark_button.html */ ?>
+<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'quiz_view_mark_button.html', 4, false),)), $this); ?>
+<?php echo '';  echo '<div class="btn-bottom"><input class="btn-width" type="button" value="';  echo ((is_array($_tmp=$this->_tpl_vars['lang']['quiz_mark'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '" onclick="quizCls[\'';  echo ((is_array($_tmp=$this->_tpl_vars['id'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '\'].enterScore(\'';  echo ((is_array($_tmp=$this->_tpl_vars['action']['target_id_name'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '\');" /></div>'; ?>

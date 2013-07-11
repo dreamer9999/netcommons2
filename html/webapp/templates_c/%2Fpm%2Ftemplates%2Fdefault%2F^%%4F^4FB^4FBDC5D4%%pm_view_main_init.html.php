@@ -1,0 +1,48 @@
+<?php /* Smarty version 2.6.12, created on 2013-07-11 09:01:35
+         compiled from pm_view_main_init.html */ ?>
+<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'pm_view_main_init.html', 4, false),array('modifier', 'get_themes_image', 'pm_view_main_init.html', 29, false),array('modifier', 'get_modules_image', 'pm_view_main_init.html', 91, false),)), $this); ?>
+<?php echo '';  echo '<div class="pm_mua_body clearfix"><form id="pm_form';  echo ((is_array($_tmp=$this->_tpl_vars['id'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '" onsubmit="return false;" action="#"><input type="hidden" name="action" value="pm_action_main_message_operation" />';  if (((is_array($_tmp=$this->_tpl_vars['action_name'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html')) == 'pm_view_main_search_result'):  echo '<input type="hidden" name="search_flag" value="search" />';  else:  echo '<input type="hidden" name="search_flag" value="none" />';  endif;  echo '<input type="hidden" name="mailbox" value="';  echo ((is_array($_tmp=$this->_tpl_vars['action']['current_menu'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '" /><input type="hidden" name="page" value="';  echo ((is_array($_tmp=$this->_tpl_vars['action']['page'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '" /><input type="hidden" name="filter" value="';  echo ((is_array($_tmp=$this->_tpl_vars['action']['filter'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '" /><table class="pm_base"><tr><td class="pm_base_upperleft"></td><td class="pm_base_upper"></td><td class="pm_base_upperright"></td></tr><tr><td colspan="2" class="pm_base_content"><table class="widthmax"><tr><td colspan="2" class="pm_hmenu_top_td"><ul class="pm_hmenu_ul pm_list_create_btn"><li class="pm_list_menu_li"><a class="syslink pm_head" href="#" title="';  echo $this->_tpl_vars['lang']['pm_new_message'];  echo '" alt="';  echo $this->_tpl_vars['lang']['pm_new_message'];  echo '" onclick="pmCls[\'';  echo ((is_array($_tmp=$this->_tpl_vars['id'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '\'].showMessagePopup(null,\'\',event,\'';  echo ((is_array($_tmp=@PM_NEW_MESSAGE)) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '\');return false;"><div><img class="icon" src="';  echo ((is_array($_tmp="edit.gif")) ? $this->_run_mod_handler('get_themes_image', true, $_tmp) : get_themes_image($_tmp));  echo '" />&nbsp;';  echo $this->_tpl_vars['lang']['pm_new_message'];  echo '</div></a></li><li class="pm_list_menu_li pm_list_del_btn">';  $_smarty_tpl_vars = $this->_tpl_vars;
+$this->_smarty_include(array('smarty_include_tpl_file' => "pm_view_list_toolbar_delete.html", 'smarty_include_vars' => array('location' => 'main','page' => ((is_array($_tmp=$this->_tpl_vars['action']['page'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html')))));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+  echo '</li><li class="pm_list_menu_li pm_list_operation">';  $_smarty_tpl_vars = $this->_tpl_vars;
+$this->_smarty_include(array('smarty_include_tpl_file' => "pm_view_list_toolbar_operation.html", 'smarty_include_vars' => array('location' => 'main','page' => ((is_array($_tmp=$this->_tpl_vars['action']['page'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html')))));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+  echo '</li><li class="pm_list_menu_li pm_list_update">';  $_smarty_tpl_vars = $this->_tpl_vars;
+$this->_smarty_include(array('smarty_include_tpl_file' => "pm_view_list_toolbar_update.html", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+  echo '</li><li class="pm_list_menu_li pm_list_search">';  $_smarty_tpl_vars = $this->_tpl_vars;
+$this->_smarty_include(array('smarty_include_tpl_file' => "pm_view_list_toolbar_filter.html", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+  echo '</li><li class="pm_list_menu_li pm_list_page">';  $_smarty_tpl_vars = $this->_tpl_vars;
+$this->_smarty_include(array('smarty_include_tpl_file' => "pm_view_list_toolbar_pager.html", 'smarty_include_vars' => array('prev' => ((is_array($_tmp=$this->_tpl_vars['action']['pager']['prev_page'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html')),'next' => ((is_array($_tmp=$this->_tpl_vars['action']['pager']['next_page'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html')),'rows' => ((is_array($_tmp=$this->_tpl_vars['action']['pager']['display_rows'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html')),'from' => ((is_array($_tmp=$this->_tpl_vars['action']['pager']['display_from'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html')),'to' => ((is_array($_tmp=$this->_tpl_vars['action']['pager']['display_to'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html')),'mailbox' => ((is_array($_tmp=$this->_tpl_vars['action']['current_menu'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html')),'filter' => ((is_array($_tmp=$this->_tpl_vars['action']['filter'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html')))));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+  echo '</li></ul></td></tr><tr><td class="pm_menu">';  echo '';  $_smarty_tpl_vars = $this->_tpl_vars;
+$this->_smarty_include(array('smarty_include_tpl_file' => "pm_view_left_menu.html", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+  echo '</td><td class="';  if (((is_array($_tmp=$this->_tpl_vars['action']['messageCount'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html')) > 0):  echo 'pm_content';  else:  echo 'pm_content_empty';  endif;  echo '">';  echo '';  if (((is_array($_tmp=$this->_tpl_vars['action']['messageCount'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html')) > 0):  echo '<table class="widthmax pm_list_inbox">';  $_smarty_tpl_vars = $this->_tpl_vars;
+$this->_smarty_include(array('smarty_include_tpl_file' => "pm_view_list_header.html", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+  echo '';  $_from = ((is_array($_tmp=$this->_tpl_vars['action']['messages'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html')); if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['message']):
+ echo '';  $_smarty_tpl_vars = $this->_tpl_vars;
+$this->_smarty_include(array('smarty_include_tpl_file' => "pm_view_list_data.html", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+  echo '';  endforeach; endif; unset($_from);  echo '</table>';  else:  echo '';  $_smarty_tpl_vars = $this->_tpl_vars;
+$this->_smarty_include(array('smarty_include_tpl_file' => "pm_view_no_message.html", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+  echo '';  endif;  echo '</td></tr><tr><td colspan="2" class="pm_hmenu_bottom_td"></td></tr></table></td><td class="pm_base_right"></td></tr><tr><td class="pm_base_belowleft"></td><td class="pm_base_below"></td><td class="pm_base_belowright"></td></tr></table></form></div>';  $_smarty_tpl_vars = $this->_tpl_vars;
+$this->_smarty_include(array('smarty_include_tpl_file' => "../pm_script.html", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+  echo '<script class="nc_script" type="text/javascript">pmCls["';  echo ((is_array($_tmp=$this->_tpl_vars['id'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '"].ascImg = "';  echo ((is_array($_tmp=((is_array($_tmp=@PM_ASC_IMG)) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html')))) ? $this->_run_mod_handler('get_modules_image', true, $_tmp) : get_modules_image($_tmp));  echo '";pmCls["';  echo ((is_array($_tmp=$this->_tpl_vars['id'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '"].descImg = "';  echo ((is_array($_tmp=((is_array($_tmp=@PM_DESC_IMG)) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html')))) ? $this->_run_mod_handler('get_modules_image', true, $_tmp) : get_modules_image($_tmp));  echo '";var receiver_checkboxes = document.getElementsByName("receiver_id[]");for(var i = 0; i < receiver_checkboxes.length; i++){receiver_checkboxes[i].checked = false;}</script>'; ?>
+

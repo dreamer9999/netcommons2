@@ -1,0 +1,6 @@
+<?php /* Smarty version 2.6.12, created on 2013-07-11 09:01:38
+         compiled from reservation_reserve_details_update_time.html */ ?>
+<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'timezone_date_format', 'reservation_reserve_details_update_time.html', 7, false),array('modifier', 'escape', 'reservation_reserve_details_update_time.html', 7, false),)), $this); ?>
+<?php echo '<th class="nowrap" scope="row">';  echo $this->_tpl_vars['lang']['reservation_update_time'];  echo '</th><td class="nowrap">';  echo ((is_array($_tmp=$this->_tpl_vars['action']['reserve']['update_time'])) ? $this->_run_mod_handler('timezone_date_format', true, $_tmp, ((is_array($_tmp=$this->_tpl_vars['lang']['_full_date_format'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'))) : timezone_date_format($_tmp, ((is_array($_tmp=$this->_tpl_vars['lang']['_full_date_format'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'))));  echo '</td>'; ?>
+

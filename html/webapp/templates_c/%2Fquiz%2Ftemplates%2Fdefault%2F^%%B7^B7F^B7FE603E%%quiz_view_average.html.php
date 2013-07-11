@@ -1,0 +1,9 @@
+<?php /* Smarty version 2.6.12, created on 2013-07-11 09:01:36
+         compiled from quiz_view_average.html */ ?>
+<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'quiz_view_average.html', 3, false),array('modifier', 'sprintf', 'quiz_view_average.html', 11, false),)), $this); ?>
+<?php echo '';  echo '<table class="outer quiz_summary" summary="';  echo ((is_array($_tmp=$this->_tpl_vars['lang']['quiz_summary_list_summary_summary'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '">';  $_smarty_tpl_vars = $this->_tpl_vars;
+$this->_smarty_include(array('smarty_include_tpl_file' => "quiz_view_answer_count.html", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+  echo '<tr class="row"><th class="nowrap" scope="row">';  echo ((is_array($_tmp=$this->_tpl_vars['lang']['quiz_average'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '</th><td>';  echo ((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['lang']['quiz_average_value'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html')))) ? $this->_run_mod_handler('sprintf', true, $_tmp, ((is_array($_tmp=$this->_tpl_vars['action']['average'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'))) : sprintf($_tmp, ((is_array($_tmp=$this->_tpl_vars['action']['average'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'))));  echo '</td></tr></table>'; ?>

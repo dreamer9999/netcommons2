@@ -1,0 +1,11 @@
+<?php /* Smarty version 2.6.12, created on 2013-07-11 09:01:52
+         compiled from column.html */ ?>
+<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'column.html', 2, false),)), $this); ?>
+<?php echo '';  if (((is_array($_tmp=$_SESSION['_user_id'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html')) != '0' || ((is_array($_tmp=$this->_tpl_vars['columns'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'))):  echo '<table class="widthmax" summary=""><tr>';  if (((is_array($_tmp=$this->_tpl_vars['columns'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'))):  echo '';  $_from = ((is_array($_tmp=$this->_tpl_vars['columns'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html')); if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }$this->_foreach['column_loop'] = array('total' => count($_from), 'iteration' => 0);
+if ($this->_foreach['column_loop']['total'] > 0):
+    foreach ($_from as $this->_tpl_vars['i'] => $this->_tpl_vars['column']):
+        $this->_foreach['column_loop']['iteration']++;
+ echo '<td class="column valign-top">';  if (((is_array($_tmp=$this->_tpl_vars['column'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'))):  echo '';  $_from = ((is_array($_tmp=$this->_tpl_vars['column'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html')); if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['j'] => $this->_tpl_vars['value']):
+ echo '<div class="cell" style="';  echo ((is_array($_tmp=$this->_tpl_vars['style'][$this->_tpl_vars['i']][$this->_tpl_vars['j']])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '">';  echo $this->_tpl_vars['column'][$this->_tpl_vars['j']];  echo '</div>';  endforeach; endif; unset($_from);  echo '';  endif;  echo '</td>';  endforeach; endif; unset($_from);  echo '';  endif;  echo '</tr></table>';  endif;  echo ''; ?>
