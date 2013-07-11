@@ -1,5 +1,6 @@
 <{strip}>
 <table id="header_menu" summary="<{$lang.pages_summary_heder_menu}>">
+<{if $smarty.session._user_id != "0"}>
 	<tr>
 		<td class="menu_left">
 		<a class="hidelink" href="#" onclick="location.href='<{$smarty.const.BASE_URL|smarty:nodefaults}><{$smarty.const.INDEX_FILE_NAME|smarty:nodefaults}>?action=pages_view_mobile&amp;reader_flag=<{$smarty.const._READER_FLAG_VALUE}>';return false;">
@@ -72,5 +73,6 @@
 			<{/if}>
 		</td>
 	</tr>
+<{/if}>
 </table>
 <{/strip}>

@@ -1,3 +1,0 @@
-<?php /* Smarty version 2.6.12, created on 2013-07-11 09:01:50
-         compiled from footer.html */ ?>
-<?php echo '';  echo $this->_tpl_vars['footer_field']['template_footer'];  echo '';  echo $this->_tpl_vars['footer_field']['script_header'];  echo '';  echo $this->_tpl_vars['footer_field']['script_footer_src'];  echo '';  echo $this->_tpl_vars['add_script_footer'];  echo '';  echo $this->_tpl_vars['footer_field']['script_footer'];  echo '</body></html>'; ?>
