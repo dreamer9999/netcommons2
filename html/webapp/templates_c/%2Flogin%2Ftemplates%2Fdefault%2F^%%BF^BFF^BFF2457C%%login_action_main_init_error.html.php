@@ -1,5 +1,0 @@
-<?php /* Smarty version 2.6.12, created on 2013-07-11 09:01:32
-         compiled from login_action_main_init_error.html */ ?>
-<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'login_action_main_init_error.html', 14, false),)), $this); ?>
-<?php echo '<script class="nc_script" type="text/javascript">var errorString = "';  echo $this->_reg_objects['errorList'][0]->getMessagesString(array('param' => false), $this); echo '";var errorArray = errorString.split(":");var errorMessage = "";for (var i = 1; i < errorArray.length; i++) {errorMessage += errorArray[i];}commonCls.alert(errorMessage);if(errorArray[0] == "login_id") {var focusElement = parent.$("login_id';  echo ((is_array($_tmp=$this->_tpl_vars['id'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '");} else {var focusElement = parent.$("password';  echo ((is_array($_tmp=$this->_tpl_vars['id'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '");}commonCls.focus(focusElement);</script>'; ?>

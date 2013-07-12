@@ -1,6 +1,0 @@
-<?php /* Smarty version 2.6.12, created on 2013-07-11 09:01:30
-         compiled from cabinet_view_main_explorer_addressbar.html */ ?>
-<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'cabinet_view_main_explorer_addressbar.html', 6, false),)), $this); ?>
-<?php echo '<table class="widthmax" summary=""><tr><td class="nowrap"><label for="cabinet_address_input';  echo ((is_array($_tmp=$this->_tpl_vars['id'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '">';  echo $this->_tpl_vars['lang']['cabinet_address'];  echo '</label></td><td class="nowrap cabinet_address"><input id="cabinet_address_input';  echo ((is_array($_tmp=$this->_tpl_vars['id'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '" type="text" value="" onkeydown="if(event.keyCode == 13){cabinetCls[\'';  echo ((is_array($_tmp=$this->_tpl_vars['id'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '\'].switchAddress(this);}" /></td></tr></table>'; ?>
-

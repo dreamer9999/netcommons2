@@ -164,3 +164,12 @@ div#centercolumn_inf_mes {
 div#centercolumn_inf_mes div {
 	padding:3px;
 }
+/* umoto 追加するのは別の場所の方が良いかな */
+table#footer_login {
+	width:100%;
+	text-align:right;
+	font-size:0.5em;
+}
+.margin-right-10px {
+	margin-right:10px;
+}

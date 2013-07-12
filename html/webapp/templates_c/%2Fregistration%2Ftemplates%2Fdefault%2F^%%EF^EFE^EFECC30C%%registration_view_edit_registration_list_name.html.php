@@ -1,5 +1,0 @@
-<?php /* Smarty version 2.6.12, created on 2013-07-11 09:01:36
-         compiled from registration_view_edit_registration_list_name.html */ ?>
-<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'registration_view_edit_registration_list_name.html', 3, false),)), $this); ?>
-<?php echo '';  echo '<label for="registration_current';  echo ((is_array($_tmp=$this->_tpl_vars['registration']['registration_id'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '';  echo ((is_array($_tmp=$this->_tpl_vars['id'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '">';  echo ((is_array($_tmp=$this->_tpl_vars['registration']['registration_name'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '</label>'; ?>

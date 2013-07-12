@@ -9,7 +9,7 @@
 					<{/if}>
 					<{foreach from=$action.section_metadatas item=item key=key}>
 						<span class="mdb_separator">
-							<select class="mdb_category" name="sort_section[<{$key}>]" onchange="mdbCls['<{$id}>'].toPage(this, '', '<{$position}>')">
+							<select class="mdb_category" id="mika1" name="sort_section[<{$key}>]" onchange="mdbCls['<{$id}>'].toPage(this, '', '<{$position}>')">
 								<option value="" <{if !strlen($action.sort_section.$key)}> selected="selected"<{/if}>>
 									<{$item.name}>
 								</option>

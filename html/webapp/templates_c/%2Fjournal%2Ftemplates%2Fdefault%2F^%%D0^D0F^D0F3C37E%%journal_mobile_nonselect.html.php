@@ -1,5 +1,0 @@
-<?php /* Smarty version 2.6.12, created on 2013-07-11 09:01:33
-         compiled from journal_mobile_nonselect.html */ ?>
-<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'journal_mobile_nonselect.html', 7, false),)), $this); ?>
-<?php echo '';  echo $this->_tpl_vars['lang']['journal_noneselect'];  echo '<br /><div style="text-align:right"><a href="?action=menu_view_mobile_init&amp;page_id=';  echo ((is_array($_tmp=$this->_tpl_vars['block_obj']['page_id'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '';  echo ((is_array($_tmp=$this->_tpl_vars['session_param'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '">';  echo $this->_tpl_vars['lang']['_btn_prev_arrow'];  echo '</a></div>'; ?>

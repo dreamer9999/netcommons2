@@ -1,6 +1,0 @@
-<?php /* Smarty version 2.6.12, created on 2013-07-11 09:01:38
-         compiled from reservation_reserve_details_title.html */ ?>
-<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'reservation_reserve_details_title.html', 7, false),array('modifier', 'get_image_url', 'reservation_reserve_details_title.html', 8, false),)), $this); ?>
-<?php echo '<th class="nowrap" scope="row">';  echo $this->_tpl_vars['lang']['reservation_reserve_title'];  echo '</th><td>';  if (((is_array($_tmp=$this->_tpl_vars['action']['reserve']['title_icon'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html')) != ""):  echo '<img class="icon" src="';  echo ((is_array($_tmp="")) ? $this->_run_mod_handler('get_image_url', true, $_tmp) : get_image_url($_tmp));  echo '/images/comp/textarea/';  echo ((is_array($_tmp=$this->_tpl_vars['action']['reserve']['title_icon'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '" alt="" />';  endif;  echo '';  echo ((is_array($_tmp=$this->_tpl_vars['action']['reserve']['title'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'html') : smarty_modifier_escape($_tmp, 'html'));  echo '</td>'; ?>
-
