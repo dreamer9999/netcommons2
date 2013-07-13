@@ -28,6 +28,9 @@
 <{elseif $metadata.type == MULTIDATABASE_META_TYPE_MAIL}>
 	<{* EMail *}>
 	<input id="datas_<{$metadata.metadata_id}>" name="datas[<{$metadata.metadata_id}>]" type="email" value="<{$content}>">
+<{elseif $metadata.type == MULTIDATABASE_META_TYPE_MAIL}>
+    <{* 郵便番号 *}>
+    <input id="datas_<{$metadata.metadata_id}>" name="datas[<{$metadata.metadata_id}>]" type="text" value="<{$content}>">
 <{elseif $metadata.type == $smarty.const.MULTIDATABASE_META_TYPE_LINK}>
 	<input id="datas_<{$metadata.metadata_id}>" name="datas[<{$metadata.metadata_id}>]" type="text" value="<{if $content != '' }><{$content}><{else}>http://<{/if}>">
 <{elseif $metadata.type == $smarty.const.MULTIDATABASE_META_TYPE_TEXTAREA}>

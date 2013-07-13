@@ -65,6 +65,8 @@
 				<{$content|change_tex|nl2br}>
 			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_TEXT}>
 				<{$content|change_tex}>
+			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_ZIP}>
+				<{$content|change_tex}>
 			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_MAIL}>
 				<{if ($content != "") }>
 					<{assign var="emailArr" value="@"|explode:$content}>
