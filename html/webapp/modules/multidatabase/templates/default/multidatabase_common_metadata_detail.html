@@ -109,13 +109,12 @@
 			<{/if}>
 		<{elseif $mode == "regist"}>
 			<{if $metadata.type == MULTIDATABASE_META_TYPE_TEXT || $metadata.type == MULTIDATABASE_META_TYPE_MAIL}>
-				<{* mikatest *}>
-				<{if $metadata.name != '郵便番号'}>
 				<{* テキスト *}>
 				<input name="datas[<{$metadata.metadata_id}>]" id="mdb_metadatas_<{$metadata.metadata_id}><{$id}>" type="text" style="width:<{$smarty.const.MULTIDATABASE_INPUT_TEXTBOX_DEFAULT_SIZE}>px;" value="<{$content}>"/>
-				<{else}>
-				<input name="datas[<{$metadata.metadata_id}>]" id="mdb_metadatas_<{$metadata.metadata_id}><{$id}>" type="text" style="width:<{$smarty.const.MULTIDATABASE_INPUT_TEXTBOX_DEFAULT_SIZE}>px;" value="<{$content}>" onKeyUp="AjaxZip3.zip2addr(this,'','datas[64]','datas[65]')"/>
-				<{/if}>
+			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_ZIP}>
+				<{* 郵便番号 *}>
+				<input name="datas[<{$metadata.metadata_id}>]" id="mdb_metadatas_<{$metadata.metadata_id}><{$id}>" type="text" style="width:<{$smarty.const.MULTIDATABASE_INPUT_TEXTBOX_DEFAULT_SIZE}>px;" value="<{$content}>" onKeyUp="AjaxZip3.zip2addr(this,'','datas[<{$metadata.metadata_id+1}>]','datas[<{$metadata.metadata_id+2}>]')"/>
+
 			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_LINK}>
 				<input name="datas[<{$metadata.metadata_id}>]" id="mdb_metadatas_<{$metadata.metadata_id}><{$id}>" type="text" style="width:<{$smarty.const.MULTIDATABASE_INPUT_TEXTBOX_DEFAULT_SIZE}>px;" value="<{if $content != '' }><{$content}><{else}>http://<{/if}>"/>
 			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_TEXTAREA}>
