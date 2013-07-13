@@ -35,6 +35,8 @@
 			<{$lang.mdb_type_autonum|smarty:nodefaults}>
 		<{elseif $metadata.type == $smarty.const.MULTIDATABASE_META_TYPE_MAIL}>
 			<{$lang.mdb_type_mail|smarty:nodefaults}>
+		<{elseif $metadata.type == $smarty.const.MULTIDATABASE_META_TYPE_ZIP}>
+			<{$lang.mdb_type_zip|smarty:nodefaults}>
 		<{elseif $metadata.type == $smarty.const.MULTIDATABASE_META_TYPE_DATE}>
 			<{$lang.mdb_type_date|smarty:nodefaults}>
 		<{elseif $metadata.type == $smarty.const.MULTIDATABASE_META_TYPE_INSERT_TIME}>
