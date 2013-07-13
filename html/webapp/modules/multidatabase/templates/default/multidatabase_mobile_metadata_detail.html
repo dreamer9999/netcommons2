@@ -78,6 +78,14 @@
 			<{else}>
 				&nbsp;
 			<{/if}>
+            <{elseif $metadata.type == $smarty.const.MULTIDATABASE_META_TYPE_IMAGE_URL}>
+            <br />
+            <{if $content == ""}>
+            <img src="<{""|get_image_url}>/<{$smarty.const.MULTIDATABASE_SAMPLE_IMAGE_URL}>" alt="NO IMAGE" />
+            <{else}>
+            <img src="<{$content|smarty:nodefaults}>"  />
+
+            <{/if}>
 		<{elseif $metadata.type == $smarty.const.MULTIDATABASE_META_TYPE_TEXTAREA}>
 			<{if ($content != "") }>
 				<{$content|smarty:nodefaults|nl2br}>

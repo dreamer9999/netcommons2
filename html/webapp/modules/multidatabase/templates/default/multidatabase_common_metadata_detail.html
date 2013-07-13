@@ -59,6 +59,12 @@
 				<{/if}>
 			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_LINK}>
 				<a class="syslink" href="<{$content}>" title="<{$lang.mdb_open_title|smarty:nodefaults|sprintf:$content}>" target="_blank"><{$content}></a>
+            <{elseif $metadata.type == MULTIDATABASE_META_TYPE_LINK}>
+                <{if $content == ""}>
+                <img src="<{""|get_image_url}><{$smarty.const.MULTIDATABASE_SAMPLE_IMAGE}>" class="mdb_metadata_image" alt="NO IMAGE" />
+                <{else}>
+                <img src="<{$content|smarty:nodefaults}>">
+                <{/if}>
 			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_WYSIWYG}>
 				<{$content|smarty:nodefaults|wysiwig_convert_url}>
 			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_TEXTAREA}>
@@ -119,6 +125,9 @@
 
 			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_LINK}>
 				<input name="datas[<{$metadata.metadata_id}>]" id="mdb_metadatas_<{$metadata.metadata_id}><{$id}>" type="text" style="width:<{$smarty.const.MULTIDATABASE_INPUT_TEXTBOX_DEFAULT_SIZE}>px;" value="<{if $content != '' }><{$content}><{else}>http://<{/if}>"/>
+            <{elseif $metadata.type == MULTIDATABASE_META_TYPE_IMAGE_URL}>
+            <input name="datas[<{$metadata.metadata_id}>]" id="mdb_metadatas_<{$metadata.metadata_id}><{$id}>" type="text" style="width:<{$smarty.const.MULTIDATABASE_INPUT_TEXTBOX_DEFAULT_SIZE}>px;" value="<{if $content != '' }><{$content}><{else}>http://<{/if}>"/>
+
 			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_TEXTAREA}>
 				<{* テキストエリア *}>
 				<textarea name="datas[<{$metadata.metadata_id}>]" id="mdb_metadatas_<{$metadata.metadata_id}><{$id}>" cols=<{$smarty.const.MULTIDATABASE_INPUT_TEXTAREA_COLS}> rows=<{$smarty.const.MULTIDATABASE_INPUT_TEXTAREA_ROWS}>><{$content}></textarea>

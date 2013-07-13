@@ -29,6 +29,8 @@
 			<{$lang.mdb_type_file|smarty:nodefaults}>
 		<{elseif $metadata.type == $smarty.const.MULTIDATABASE_META_TYPE_IMAGE}>
 			<{$lang.mdb_type_image|smarty:nodefaults}>
+		<{elseif $metadata.type == $smarty.const.MULTIDATABASE_META_TYPE_IMAGE_URL}>
+			<{$lang.mdb_type_image_url|smarty:nodefaults}>
 		<{elseif $metadata.type == $smarty.const.MULTIDATABASE_META_TYPE_WYSIWYG}>
 			<{$lang.mdb_type_wysiwyg|smarty:nodefaults}>
 		<{elseif $metadata.type == $smarty.const.MULTIDATABASE_META_TYPE_AUTONUM}>

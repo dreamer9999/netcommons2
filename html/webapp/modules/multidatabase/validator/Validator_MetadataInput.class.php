@@ -239,6 +239,20 @@ class Multidatabase_Validator_MetadataInput extends Validator
 				}
 			}
 
+            if($metadata['type'] == MULTIDATABASE_META_TYPE_IMAGE_URL && !empty($datas[$metadata_id]) &&
+                !preg_match("/^\.\//", $datas[$metadata_id]) && !preg_match("/^\.\.\//", $datas[$metadata_id])) {
+                $error = true;
+                foreach ($protocolArr as $i=>$protocol) {
+                    if (preg_match("/^" . $protocol["protocol"] . "/", $datas[$metadata_id])) {
+                        $error = false;
+                        continue;
+                    }
+                }
+                if ($error) {
+                    return _INVALID_INPUT;
+                }
+            }
+
 			if ($metadata['type'] == MULTIDATABASE_META_TYPE_MAIL) {
 				$input_datas[$metadata_id] = $escapeText->convertSingleByte($datas[$metadata_id]);
 

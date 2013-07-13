@@ -33,6 +33,8 @@
     <input id="datas_<{$metadata.metadata_id}>" name="datas[<{$metadata.metadata_id}>]" type="text" value="<{$content}>">
 <{elseif $metadata.type == $smarty.const.MULTIDATABASE_META_TYPE_LINK}>
 	<input id="datas_<{$metadata.metadata_id}>" name="datas[<{$metadata.metadata_id}>]" type="text" value="<{if $content != '' }><{$content}><{else}>http://<{/if}>">
+<{elseif $metadata.type == $smarty.const.MULTIDATABASE_META_TYPE_IMAGE_URL}>
+    <input id="datas_<{$metadata.metadata_id}>" name="datas[<{$metadata.metadata_id}>]" type="text" value="<{if $content != '' }><{$content}><{else}>http://<{/if}>">
 <{elseif $metadata.type == $smarty.const.MULTIDATABASE_META_TYPE_TEXTAREA}>
 	<{* テキストエリア *}>
 	<textarea id="datas_<{$metadata.metadata_id}>" name="datas[<{$metadata.metadata_id}>]" cols="<{$smarty.const.MULTIDATABASE_INPUT_TEXTAREA_COLS}>" rows="<{$smarty.const.MULTIDATABASE_INPUT_TEXTAREA_ROWS}>" ><{$content}></textarea>
