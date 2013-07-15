@@ -42,6 +42,25 @@
 			<{/if}>
 		<{elseif $mode == "list" || $mode == "detail"}>
 			<{* 一覧用 *}>
+<{* umoto編集フック *}>
+<{php}>
+$multidatabase_id = $this->get_template_vars('multidatabase_id');
+$metadata = $this->get_template_vars('metadata');
+$metadata_id = $this->get_template_vars('metadata_id');
+$item = $this->get_template_vars('item');
+$content = $this->get_template_vars('content');
+
+require_once(MODULE_DIR.'/multidatabase/templates/metadataEdit.php');
+$metadataEdit = new metadataEdit();
+// 表示のスキップ？
+if($metadataEdit->isDisplaySkipItem($multidatabase_id, $metadata_id)){
+} else {
+// 編集
+	$content = $metadataEdit->edit($item, $multidatabase_id, $metadata_id);
+	$this->assign('content', $content);
+<{/php}>
+<{* umoto編集フック *}>
+
 			<{if $metadata.type == MULTIDATABASE_META_TYPE_FILE}>
 				<{if $content == ""}>
 					&nbsp;
@@ -65,12 +84,20 @@
                 <{else}>
                 <img src="<{$content|smarty:nodefaults}>">
                 <{/if}>
+            <{elseif $metadata.type == MULTIDATABASE_META_TYPE_IMAGE_URL}>
+                <{if $content == ""}>
+                <img src="<{""|get_image_url}><{$smarty.const.MULTIDATABASE_SAMPLE_IMAGE}>" class="mdb_metadata_image" alt="NO IMAGE" />
+                <{else}>
+                <img src="<{$content|smarty:nodefaults}>" style="max-width:600px;max-height:400px;">
+                <{/if}>
 			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_WYSIWYG}>
 				<{$content|smarty:nodefaults|wysiwig_convert_url}>
 			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_TEXTAREA}>
 				<{$content|change_tex|nl2br}>
 			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_TEXT}>
+				<{if $action.mdb_obj.title_metadata_id == $metadata.metadata_id}><span style="font-weight:bold;font-size:1.3em;"><{/if}>
 				<{$content|change_tex}>
+				<{if $action.mdb_obj.title_metadata_id == $metadata.metadata_id}></span><{/if}>
 			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_ZIP}>
 				<{$content|change_tex}>
 			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_MAIL}>
@@ -115,6 +142,12 @@
 			<{else}>
 				<{$content}>
 			<{/if}>
+<{* umoto編集フック *}>
+<{php}>
+}
+<{/php}>
+<{* umoto編集フック *}>
+
 		<{elseif $mode == "regist"}>
 			<{if $metadata.type == MULTIDATABASE_META_TYPE_TEXT || $metadata.type == MULTIDATABASE_META_TYPE_MAIL}>
 				<{* テキスト *}>
