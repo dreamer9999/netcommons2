@@ -6,12 +6,14 @@ $sprintfText = array();
 $editFunction = array();
 $sprintfReplace = array();
 // デフォルト指定終了---------------------------------------------------------------
+
+// ↓ここから個別の指定-------------------------------------------------------------
+
 // 表示をスキップする指定-----------------------------------------------------------
 $displaySkipItem = array(64, 65, 66);
 
 
 // 編集する指定-----------------------------------------------------------
 $sprintfText[63] = '〒%s %s%s %s this is endxxxxxxxxxxxxxxxxxxxxxxxxxxxx ';
-//$sprintfText[63] = '〒%s';
 $editFunction[63] = 'zip';
 $sprintfReplace[63] = array(64, 65, 66);
