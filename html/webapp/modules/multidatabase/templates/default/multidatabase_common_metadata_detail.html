@@ -51,6 +51,17 @@ if($metadataEdit->isDisplaySkipItem($multidatabase_id, $metadata_id)){
 		$this->assign('googlemap_alt', '');
 	}
 
+	// googleMap緯度経度
+	if($metadataEdit->googleMapLL != ''){
+		$latlng = explode(',',$metadataEdit->googleMapLL);
+		$this->assign('lat', $latlng[0]);
+		$this->assign('lng', $latlng[0]);
+	} else {
+		$this->assign('lat', '');
+		$this->assign('lng', '');
+	}
+	$this->assign('cowname', $metadataEdit->googleMapMarkName);
+
 	$this->assign('content', $content);
 	if($content == ''){
 		$this->assign('isSkip', 1);
@@ -176,7 +187,7 @@ if($metadataEdit->isDisplaySkipItem($multidatabase_id, $metadata_id)){
 			<{/if}>
 			<{* umoto編集フック *}>
 			<{if $googlemap_alt != ''}>
-			<div id="google_map" style="margin-top:10px;margin-bottom:10px;text-align:center;width:100%;height:400px;" alt="<{$googlemap_alt}>"></div>
+			<div id="google_map" style="margin-top:10px;margin-bottom:10px;text-align:center;width:100%;height:400px;" alt="<{$googlemap_alt}>" lat="<{$lat}>" lng="<{$lng}>" cowname="<{$cowname}>"></div>
 			<div class="align-center">
 			<a href="https://maps.google.co.jp/maps?q=<{$googlemap_alt}>&ie=UTF-8&hl=ja" target="_blank">大きな地図で見る</a>
 			</div>

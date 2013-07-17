@@ -6,8 +6,8 @@ var document_loaded_flag;
 function showMap(){
     if (api_loaded_flag == 1){
         if (document_loaded_flag == 1){
-
-            googlemap_init('google_map', jQuery('#google_map').attr('alt'));
+alert(jQuery('#google_map').attr('cowname'));
+            googlemap_init('google_map', jQuery('#google_map').attr('alt'), jQuery('#google_map').attr('lat'), jQuery('#google_map').attr('lng'), jQuery('#google_map').attr('cowname'));
         }
 	}
 }

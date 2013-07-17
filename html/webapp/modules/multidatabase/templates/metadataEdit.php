@@ -56,6 +56,8 @@ class metadataEdit
 	public $sprintfText = array();
 	public $replaceName;
 	public $googleMapAlt;
+	public $googleMapLL;
+	public $googleMapMarkName;
 	public $type;
 
 	public function isDisplaySkipItem($multidatabase_id, $metadata_id)
@@ -75,7 +77,8 @@ class metadataEdit
 		$this->replaceName = '';
 		$this->googleMapAlt = '';
 		$this->type = '';
-		$this->googleMapLL = array();
+		$this->googleMapLL = '';
+		$this->googleMapMarkName = '';
 
 		$content = $item[$metadata_id];
 		if (file_exists(dirname(__FILE__).'/'.$multidatabase_id.'_metadata_edit.php')) {
@@ -143,9 +146,17 @@ class metadataEdit
 		// googlemap 緯度経度から
 		if(array_key_exists(intval($metadata_id), $googleMapLL)){
 			// googlemap挿入
-			$this->googleMapLL = $googleMap[$metadata_id];
+			$key = $googleMapLL[$metadata_id];
+			$this->googleMapLL = $item[$key];
 		}
-		
+		// googlemap markname指定
+		echo "<br>xxx googleMapMarkName ".$googleMapMarkName;
+
+		if($googleMapMarkName != ''){
+		echo "<br>xxx googleMapMarkName ".$googleMapMarkName;
+			$this->googleMapMarkName = $item[$googleMapMarkName];
+		echo "<br>this googleMapMarkName ".$this->googleMapMarkName;
+		}
 		return $content;
 	}
 	

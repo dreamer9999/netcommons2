@@ -5,7 +5,9 @@ $displaySkipItem = array();
 $sprintfText = array();
 $editFunction = array();
 $sprintfReplace = array();
-$googleMap = array(); // 内容もarray指定。ここで指定した項目の次にgooglemapを表示する。指定するのは元となる住所の項目番
+$googleMap = array(); // 内容もarray指定。ここで指定した項目の次にgooglemapを表示する。指定するのは元となる住所の項目
+$googleMapLL = array(); // ここで指定した項目の次にgooglemapを表示する。指定するのは元となる緯度経度の項目
+$googleMapMarkName = ''; // ここで指定した項目のをマーカーの名前にする
 $nameReplace = array(); // ここで指定した項目のnameを置き換える
 $optionEdit = array(); // 内容による置き換え指定。内容もarray指定。array(値が○○の時だけ編集する, 値は利用しないフラグ)
 $changeType = array(); // ここで指定されたtypeに変更する
@@ -37,5 +39,10 @@ $sprintfReplace[75] = array(77);
 $optionEdit[87] = array('加入', 0, MULTIDATABASE_META_TYPE_TEXTAREA); // 内容もarray指定。array(値が○○の時だけ編集する, 値は利用しないフラグ, 置き換え時にタイプを変更したいときはtype指定。変更しないときは-1を指定する)
 $sprintfText[87] = '%s 特典：%s';
 $sprintfReplace[87] = array(88);
+
+$googleMapMarkName = 1;
+
+echo "<br>googleMapMarkName ".$googleMapMarkName;
+
 
 
