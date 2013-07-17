@@ -18,7 +18,7 @@ define('INSTALL_INC_DIR', transPathSeparator(dirname(__FILE__)));
 // ----------------------------
 // ベースのURL値
 // ----------------------------
-define('BASE_URL', 'http://localhost/nc20m/html');
+define('BASE_URL', 'http://localhost/ncgocow/html');
 // -------------------------------------------------
 // ベースのURL値(ソースがあるCoreのNetCommonsのURL)
 // 基本：BASE_URLと同じ
@@ -54,7 +54,7 @@ define('FILEUPLOADS_DIR', dirname(INSTALL_INC_DIR) . '/uploads/');
 // ----------------------------
 // データベース用設定値
 // ----------------------------
-define('DATABASE_DSN', 'mysql://root:@localhost/nc20m');
+define('DATABASE_DSN', 'mysql://root:@localhost/ncgocow');
 define('DATABASE_PREFIX', 'nc20m_');
 define('DATABASE_PCONNECT', 0);
 define('DATABASE_CHARSET',	'utf8');
