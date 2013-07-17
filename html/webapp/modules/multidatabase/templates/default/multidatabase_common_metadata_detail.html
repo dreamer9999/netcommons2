@@ -34,11 +34,16 @@ if($metadataEdit->isDisplaySkipItem($multidatabase_id, $metadata_id)){
 } else {
 // 編集
 	$content = $metadataEdit->edit($item, $multidatabase_id, $metadata_id);
+	// type置き換え？
+	if($metadataEdit->type != ''){
+		$metadata['type'] = $metadataEdit->type;
+	}
 	// name置き換え？
 	if($metadataEdit->replaceName != ''){
 		$metadata['name'] = $metadataEdit->replaceName;
-		$this->assign('metadata', $metadata);
 	}
+	$this->assign('metadata', $metadata);
+
 	// googleMap?
 	if($metadataEdit->googleMapAlt != ''){
 		$this->assign('googlemap_alt', $metadataEdit->googleMapAlt);
@@ -47,12 +52,15 @@ if($metadataEdit->isDisplaySkipItem($multidatabase_id, $metadata_id)){
 	}
 
 	$this->assign('content', $content);
+	if($content == ''){
+		$this->assign('isSkip', 1);
+	}
 }
 <{/php}>
 <{* umoto編集フック *}>
 			<{/if}>
-<{if $isSkip == 0 and $content != ''}>
-<tr>
+<{if $isSkip == 0}>
+<tr style="max-width:750px;">
 	<{if ($metadata.type != MULTIDATABASE_META_TYPE_IMAGE && $metadata.name_flag == _ON) || $mode == "regist" }>
 		<th class="mdb_detail_head nowrap <{if $position == 1 || $position == 4}>mdb_detail_head_top_bottom<{/if}> width_100px" scope="row">
 			<{if $mode == regist}><label for="mdb_metadatas_<{$metadata.metadata_id}><{$id}>"><{/if}>

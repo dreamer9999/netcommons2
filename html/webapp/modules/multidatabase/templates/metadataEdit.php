@@ -56,6 +56,7 @@ class metadataEdit
 	public $sprintfText = array();
 	public $replaceName;
 	public $googleMapAlt;
+	public $type;
 
 	public function isDisplaySkipItem($multidatabase_id, $metadata_id)
 	{
@@ -73,6 +74,8 @@ class metadataEdit
 	{
 		$this->replaceName = '';
 		$this->googleMapAlt = '';
+		$this->type = '';
+		$this->googleMapLL = array();
 
 		$content = $item[$metadata_id];
 		if (file_exists(dirname(__FILE__).'/'.$multidatabase_id.'_metadata_edit.php')) {
@@ -86,7 +89,25 @@ class metadataEdit
 			$this->replaceName = $nameReplace[$metadata_id];
 		}
 		
-		if(array_key_exists(intval($metadata_id), $sprintfText)){
+		$doFlag = 1;
+		$unShiftFlag = 1;
+		
+		if(array_key_exists(intval($metadata_id), $optionEdit)){
+			list($value, $flag, $type) = $optionEdit[$metadata_id];
+			if($content == $value){
+				// この値だったら編集する　true
+				if($flag == 1){
+					// 編集するとき自身を使わない　true
+					$unShiftFlag = 0;
+				}
+				if($type > -1){
+					$this->type = $type;
+				}
+			} else {
+				$doFlag = 0;
+			}
+		}
+		if((array_key_exists(intval($metadata_id), $sprintfText)) and ($doFlag == 1)) {
 			// 項目編集指示あり
 			// その項目自身の編集指示
 			if(array_key_exists(intval($metadata_id), $editFunction)){
@@ -100,7 +121,10 @@ class metadataEdit
 				foreach($sprintfReplace[$metadata_id] as $key => $val){
 					$otherItem[] = $item[$val];
 				}
-				array_unshift($otherItem, $content);
+				if($unShiftFlag == 1){
+					// 自身を使わない指示がないとき
+					array_unshift($otherItem, $content);
+				}
 				$content = vsprintf($sprintfText[$metadata_id], $otherItem);
 				
 			} else {
@@ -108,12 +132,18 @@ class metadataEdit
 			}
 		}
 		
-		// googlemap
+		
+		// googlemap 住所から
 		if(array_key_exists(intval($metadata_id), $googleMap)){
 			// googlemap挿入
 			foreach($googleMap[$metadata_id] as $key => $val){
 				$this->googleMapAlt .= $item[$val];
 			}
+		}
+		// googlemap 緯度経度から
+		if(array_key_exists(intval($metadata_id), $googleMapLL)){
+			// googlemap挿入
+			$this->googleMapLL = $googleMap[$metadata_id];
 		}
 		
 		return $content;
