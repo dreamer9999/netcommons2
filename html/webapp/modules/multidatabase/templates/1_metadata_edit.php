@@ -5,7 +5,9 @@ $displaySkipItem = array();
 $sprintfText = array();
 $editFunction = array();
 $sprintfReplace = array();
-$googleMap = array(); // ここで指定した項目の次にgooglemapを表示する。指定するのは元となる住所の項目番号
+$googleMap = array(); // ここで指定した項目の次にgooglemapを表示する。指定するのは元となる住所の項目番
+$nameReplace = array(); // ここで指定した項目のnameを置き換える
+
 // デフォルト指定終了---------------------------------------------------------------
 
 // ↓ここから個別の指定-------------------------------------------------------------
@@ -18,4 +20,5 @@ $displaySkipItem = array(64, 65, 66);
 $sprintfText[63] = '〒%s %s%s %s';
 $editFunction[63] = 'zip';
 $sprintfReplace[63] = array(64, 65, 66);
-$googleMap[63] = array(64, 65);
+$googleMap[67] = array(64, 65);
+$nameReplace[63] = '住所';

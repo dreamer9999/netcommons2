@@ -44,6 +44,9 @@ $sprintfReplaceArray[63] = array(64, 65, 66);
 googlemap対応
 $googleMap = array(); // ここで指定した項目の次にgooglemapを表示する。指定するのは元となる住所の項目番号$googleMap[63] = array(64, 65);
 
+タイトル置き換え
+$nameReplace[] = "xxx"; // ここで指定した項目のタイトルを置き換える
+
 */
 
 
@@ -51,6 +54,8 @@ $googleMap = array(); // ここで指定した項目の次にgooglemapを表示�
 class metadataEdit
 {
 	public $sprintfText = array();
+	public $replaceName;
+	public $googleMapAlt;
 
 	public function isDisplaySkipItem($multidatabase_id, $metadata_id)
 	{
@@ -66,12 +71,20 @@ class metadataEdit
 
 	public function edit($item, $multidatabase_id, $metadata_id)
 	{
+		$this->replaceName = '';
+		$this->googleMapAlt = '';
+
 		$content = $item[$metadata_id];
 		if (file_exists(dirname(__FILE__).'/'.$multidatabase_id.'_metadata_edit.php')) {
 			require(dirname(__FILE__).'/'.$multidatabase_id.'_metadata_edit.php');
 		} else {
 			return $content;
-		}		
+		}
+		
+		// 項目名置き換え
+		if(array_key_exists(intval($metadata_id), $nameReplace)){
+			$this->replaceName = $nameReplace[$metadata_id];
+		}
 		
 		if(array_key_exists(intval($metadata_id), $sprintfText)){
 			// 項目編集指示あり
@@ -89,22 +102,20 @@ class metadataEdit
 				}
 				array_unshift($otherItem, $content);
 				$content = vsprintf($sprintfText[$metadata_id], $otherItem);
-				if(array_key_exists(intval($metadata_id), $googleMap)){
-					// googlemap挿入
-					$alt = '';
-					foreach($googleMap[$metadata_id] as $key => $val){
-						$alt .= $item[$val];
-					}
-					// googleMap指定のあるときは返り値がarray　array(content, alt)
-					return array('insertGoogleMap', $content, $alt);
-				} else {
-					return $content;
-				}
 				
 			} else {
-				return sprintf($sprintfText[$metadata_id], $content);
+				$content = sprintf($sprintfText[$metadata_id], $content);
 			}
 		}
+		
+		// googlemap
+		if(array_key_exists(intval($metadata_id), $googleMap)){
+			// googlemap挿入
+			foreach($googleMap[$metadata_id] as $key => $val){
+				$this->googleMapAlt .= $item[$val];
+			}
+		}
+		
 		return $content;
 	}
 	
