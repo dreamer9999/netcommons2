@@ -41,6 +41,9 @@ $sprintfReplaceArray[63] = array(64, 65, 66);
 表示
 〒135-0061 東京都江東区豊洲３３３ 豊洲ビル3F
 
+googlemap対応
+$googleMap = array(); // ここで指定した項目の次にgooglemapを表示する。指定するのは元となる住所の項目番号$googleMap[63] = array(64, 65);
+
 */
 
 
@@ -85,8 +88,18 @@ class metadataEdit
 					$otherItem[] = $item[$val];
 				}
 				array_unshift($otherItem, $content);
-				return vsprintf($sprintfText[$metadata_id], $otherItem);
-	
+				$content = vsprintf($sprintfText[$metadata_id], $otherItem);
+				if(array_key_exists(intval($metadata_id), $googleMap)){
+					// googlemap挿入
+					$alt = '';
+					foreach($googleMap[$metadata_id] as $key => $val){
+						$alt .= $item[$val];
+					}
+					// googleMap指定のあるときは返り値がarray　array(content, alt)
+					return array('insertGoogleMap', $content, $alt);
+				} else {
+					return $content;
+				}
 				
 			} else {
 				return sprintf($sprintfText[$metadata_id], $content);
