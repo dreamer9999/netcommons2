@@ -2,19 +2,19 @@ var my_google_map;
 var my_google_geo;
 
 function googlemap_init( id_name, addr_name ) {
-    var latlng = new google.maps.LatLng(41, 133);
-    var opts = {
-        zoom: 15,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        center: latlng
-    };
-    my_google_map = new google.maps.Map(document.getElementById(id_name), opts);
+		    var latlng = new google.maps.LatLng(41, 133);
+		    var opts = {
+		        zoom: 15,
+		        mapTypeId: google.maps.MapTypeId.ROADMAP,
+		        center: latlng
+		    };
+		    my_google_map = new google.maps.Map(document.getElementById(id_name), opts);
 
-    my_google_geo = new google.maps.Geocoder();
-    var req = {
-        address: addr_name ,
-    };
-    my_google_geo.geocode(req, geoResultCallback);
+		    my_google_geo = new google.maps.Geocoder();
+		    var req = {
+		        address: addr_name ,
+		    };
+		    my_google_geo.geocode(req, geoResultCallback);
 }
 
 

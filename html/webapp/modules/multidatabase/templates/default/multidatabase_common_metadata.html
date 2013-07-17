@@ -1,5 +1,15 @@
 <{strip}>
-<script src="http://maps.google.com/maps/api/js?v=3&sensor=false" type="text/javascript" charset="UTF-8"></script>
+<script type="text/javascript">
+var api_loaded_flag;
+var document_loaded_flag;
+
+function apiLoaded()
+{
+	api_loaded_flag = 1;
+	showMap();
+}
+</script>
+<script src="http://maps.google.com/maps/api/js?v=3&sensor=false&callback=apiLoaded" type="text/javascript" charset="UTF-8"></script>
 <script src="http://ajaxzip3.googlecode.com/svn/trunk/ajaxzip3/ajaxzip3.js" charset="UTF-8"></script>
 <span id="mdb_refresh_target<{$id}>"></span>
 <table class="mdb_layout_out_table" summary="">
