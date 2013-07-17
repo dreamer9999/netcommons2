@@ -16,7 +16,7 @@
 <{/if}>
 <tr>
 	<{if ($metadata.type != MULTIDATABASE_META_TYPE_IMAGE && $metadata.name_flag == _ON) || $mode == "regist" }>
-		<th class="mdb_detail_head nowrap <{if $position == 1 || $position == 4}>mdb_detail_head_top_bottom<{/if}>" scope="row">
+		<th class="mdb_detail_head nowrap <{if $position == 1 || $position == 4}>mdb_detail_head_top_bottom<{/if}> width_100px" scope="row">
 			<{if $mode == regist}><label for="mdb_metadatas_<{$metadata.metadata_id}><{$id}>"><{/if}>
 				<{$metadata.name}>
 			<{if $mode == regist}></label><{/if}>
@@ -31,7 +31,11 @@
 	<{if ($metadata.type == MULTIDATABASE_META_TYPE_IMAGE && ($mode == "confirm" || $mode == "preview" || $mode == "detail" || $mode == "list")) || $metadata.name_flag == _OFF}>
 		<td class="mdb_edit_detail" colspan="2">
 	<{else}>
+		<{if $position == 1}>
+		<td class="mdb_edit_detail width_650px">
+		<{else}>
 		<td class="mdb_edit_detail">
+		<{/if}>
 	<{/if}>
 		<{if $mode == "preview" }>
 			<{* preview用 *}>

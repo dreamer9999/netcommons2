@@ -675,3 +675,20 @@ textarea.textarea {
 	width:450px;
 	height:80px;
 }
+
+// width
+.width_750px {
+	width:750px;
+}
+.width_650px {
+	width:650px;
+}
+.width_375px {
+	width:375px;
+}
+.width_187px {
+	width:187px;
+}
+.width_100px {
+	width:100px;
+}

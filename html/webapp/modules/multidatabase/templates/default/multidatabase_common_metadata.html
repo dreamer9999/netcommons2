@@ -3,6 +3,15 @@
 var api_loaded_flag;
 var document_loaded_flag;
 
+function showMap(){
+    if (api_loaded_flag == 1){
+        if (document_loaded_flag == 1){
+
+            googlemap_init('google_map', jQuery('#google_map').attr('alt'));
+        }
+	}
+}
+
 function apiLoaded()
 {
 	api_loaded_flag = 1;
@@ -16,7 +25,7 @@ function apiLoaded()
 	<{if $data_pos_1 != null}>
 		<tr>
 			<td class="valign-top align-left mdb_layout_out_table_td" <{if $data_pos_2 != null && $data_pos_3 != null}>colspan="2"<{/if}>>
-				<table class="mdb_metadata_table" summary="">
+				<table class="mdb_metadata_table width_750px" summary="">
 					<{assign var="position" value="1"}>
 					<{foreach item=metadata from=$data_pos_1}>
 						<{include file="multidatabase_common_metadata_detail.html"}>
@@ -28,7 +37,7 @@ function apiLoaded()
 	<{if $data_pos_2 != null || $data_pos_3 != null}>
 		<tr>
 			<{if $data_pos_2 != null}>
-				<td class="valign-top align-left mdb_layout_out_table_td">
+				<td class="valign-top align-left mdb_layout_out_table_td width_375px">
 					<table class="mdb_metadata_table" summary="">
 						<{assign var="position" value="2"}>
 						<{foreach item=metadata from=$data_pos_2}>
@@ -38,7 +47,7 @@ function apiLoaded()
 				</td>
 			<{/if}>
 			<{if $data_pos_3 != null}>
-				<td class="valign-top align-left">
+				<td class="valign-top align-left  width_375px">
 					<table class="mdb_metadata_table" summary="">
 						<{assign var="position" value="3"}>
 						<{foreach item=metadata from=$data_pos_3}>
