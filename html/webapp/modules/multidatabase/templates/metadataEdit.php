@@ -59,43 +59,67 @@ class metadataEdit
 	public $googleMapLL;
 	public $googleMapMarkName;
 	public $type;
-
-	public function isDisplaySkipItem($multidatabase_id, $metadata_id)
+	public $multipleSeparator;
+	public $nameFlag;
+	
+	protected $item = array();
+		
+	public function isDisplaySkipItem($mode, $multidatabase_id, $metadata_id)
 	{
-		if (file_exists(dirname(__FILE__).'/'.$multidatabase_id.'_metadata_edit.php')) {
-			require(dirname(__FILE__).'/'.$multidatabase_id.'_metadata_edit.php');
-			if (strlen(array_search($metadata_id, $displaySkipItem)) > 0){
+		$extend = '';
+		if($mode == 'list'){
+			$extend = '_list';
+		}
+		$fileName = dirname(__FILE__).'/'.$multidatabase_id.'_metadata_edit'.$extend.'.php';
+		if (file_exists($fileName)) {
+			require($fileName);
+			var_dump($displaySkipItem);
+			if (array_search($metadata_id, $displaySkipItem) !== false){
+				echo "<br>true";
 				return true;
 			}
-		} else {
+				echo "<br>false";
 			return false;
-		}		
+		} else {
+			// 設定ファイルがなければ終了
+			return false;
+		}
 	}
 
-	public function edit($item, $multidatabase_id, $metadata_id)
+	public function edit($mode, $item, $multidatabase_id, $metadata_id)
 	{
 		$this->replaceName = '';
 		$this->googleMapAlt = '';
 		$this->type = '';
 		$this->googleMapLL = '';
 		$this->googleMapMarkName = '';
-
+		$this->multipleSeparator = '';
 		$content = $item[$metadata_id];
-		if (file_exists(dirname(__FILE__).'/'.$multidatabase_id.'_metadata_edit.php')) {
-			require(dirname(__FILE__).'/'.$multidatabase_id.'_metadata_edit.php');
+		
+		$this->nameFlag = '';
+
+		$extend = '';
+		if($mode == 'list'){
+			$extend = '_list';
+		}
+		$fileName = dirname(__FILE__).'/'.$multidatabase_id.'_metadata_edit'.$extend.'.php';
+		if (file_exists($fileName)) {
+			require($fileName);
 		} else {
+			// 設定ファイルがなければ終了
 			return $content;
 		}
 		
+		
 		// 項目名置き換え
-		if(array_key_exists(intval($metadata_id), $nameReplace)){
+		if(array_key_exists($metadata_id, $nameReplace)){
 			$this->replaceName = $nameReplace[$metadata_id];
 		}
 		
 		$doFlag = 1;
 		$unShiftFlag = 1;
 		
-		if(array_key_exists(intval($metadata_id), $optionEdit)){
+		if(array_key_exists($metadata_id, $optionEdit)){
 			list($value, $flag, $type) = $optionEdit[$metadata_id];
 			if($content == $value){
 				// この値だったら編集する　true
@@ -110,14 +134,20 @@ class metadataEdit
 				$doFlag = 0;
 			}
 		}
-		if((array_key_exists(intval($metadata_id), $sprintfText)) and ($doFlag == 1)) {
+		if((array_key_exists($metadata_id, $sprintfText)) and ($doFlag == 1)) {
 			// 項目編集指示あり
 			// その項目自身の編集指示
-			if(array_key_exists(intval($metadata_id), $editFunction)){
-				$content = $this->_editFunction($content, $editFunction[$metadata_id]);
+			if(array_key_exists($metadata_id, $editFunction)){
+				$option = array();
+				if(array_key_exists($metadata_id, $editFunctionOption)){
+					$option = $editFunctionOption[$metadata_id];
+				}
+				$this->item = $item;
+				$content = $this->_editFunction($content, $editFunction[$metadata_id], $option);
 			}
+			
 			// その項目以外を使った編集指示
-			if(array_key_exists(intval($metadata_id), $sprintfReplace)){
+			if(array_key_exists($metadata_id, $sprintfReplace)){
 				// あり
 				$otherItem = array();
 				
@@ -137,30 +167,46 @@ class metadataEdit
 		
 		
 		// googlemap 住所から
-		if(array_key_exists(intval($metadata_id), $googleMap)){
+		if(array_key_exists($metadata_id, $googleMap)){
 			// googlemap挿入
 			foreach($googleMap[$metadata_id] as $key => $val){
 				$this->googleMapAlt .= $item[$val];
 			}
 		}
 		// googlemap 緯度経度から
-		if(array_key_exists(intval($metadata_id), $googleMapLL)){
+		if(array_key_exists($metadata_id, $googleMapLL)){
 			// googlemap挿入
-			$key = $googleMapLL[$metadata_id];
-			$this->googleMapLL = $item[$key];
+			$this->googleMapLL = $item[$googleMapLL[$metadata_id]];
 		}
 		// googlemap markname指定
-		echo "<br>xxx googleMapMarkName ".$googleMapMarkName;
-
-		if($googleMapMarkName != ''){
-		echo "<br>xxx googleMapMarkName ".$googleMapMarkName;
-			$this->googleMapMarkName = $item[$googleMapMarkName];
-		echo "<br>this googleMapMarkName ".$this->googleMapMarkName;
+		if(array_key_exists($metadata_id, $googleMapMarkName)){
+			$this->googleMapMarkName = $item[$googleMapMarkName[$metadata_id]];
 		}
+		// イコール無視 指定した項目の値が指定した内容とイコールだったとき内容を空白とする
+		if(array_key_exists($metadata_id, $eqIgnoreString)){
+			if($item[$metadata_id] == $eqIgnoreString[$metadata_id]){
+				$content = '';
+			}
+		}
+		
+		// multipleタイプの時のセパレータを指定する。ここで指定しない場合は<br />となる
+		if(array_key_exists($metadata_id, $multipleSeparator)){
+			$this->multipleSeparator = $multipleSeparator[$metadata_id];
+		}
+		
+		if(array_key_exists($metadata_id, $nameFlag)){
+			$this->nameFlag = $nameFlag[$metadata_id];
+		}
+		
+		if(array_key_exists($metadata_id, $changeType)){
+			$this->type = $changeType[$metadata_id];
+		}
+		
 		return $content;
 	}
-	
-	protected function _editFunction($content, $kind)
+
+
+	protected function _editFunction($content, $kind, $option)
 	{
 		switch($kind){
 			case 'zip':
@@ -169,8 +215,22 @@ class metadataEdit
 				}
 				return substr($content, 0, 3).'-'.substr($content, 3, 4);
 				break;
+			case 'list_link_buttons':
+				$link = '<a href="%s" target="_blank"><img src="images/multidatabase/%s" style="width:20px;"></a>&nbsp;';
+				// home
+				if($content != ''){
+					$list_link_buttons = sprintf($link, $content, 'web.jpg');
+				}
+				// facebook
+				if(($this->item[$option[0]] != '') and ($this->item[$option[0]] != 'http://')){
+					$list_link_buttons .= sprintf($link, $this->item[$option[0]], 'facebook.png');
+				}
+				// facebook
+				if(($this->item[$option[1]] != '') and ($this->item[$option[1]] != 'http://')){
+					$list_link_buttons .= sprintf($link, $this->item[$option[1]], 'twitter-bird-white-on-blue.png');
+				}
+				return $list_link_buttons;
 		}
 	//	var_dump($this->sprintfText);
 	}
-	
 }

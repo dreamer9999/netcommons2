@@ -1,20 +1,32 @@
 var my_google_map;
 var my_google_geo;
 
-function googlemap_init( id_name, addr_name ) {
+function googlemap_init( id_name, addr_name, lat, lng, cowname) {
+		if(lat == ''){
 		    var latlng = new google.maps.LatLng(41, 133);
+		} else {
+		    var latlng = new google.maps.LatLng(35.678697,139.782142);
+		}
 		    var opts = {
-		        zoom: 15,
+		        zoom: 17,
 		        mapTypeId: google.maps.MapTypeId.ROADMAP,
 		        center: latlng
 		    };
 		    my_google_map = new google.maps.Map(document.getElementById(id_name), opts);
-
 		    my_google_geo = new google.maps.Geocoder();
+
+		if(lat == 0){
 		    var req = {
 		        address: addr_name ,
 		    };
 		    my_google_geo.geocode(req, geoResultCallback);
+		} else {
+			var marker = new google.maps.Marker({
+			    position: latlng,
+			    map: my_google_map,
+			    title:cowname
+			    });
+		}
 }
 
 

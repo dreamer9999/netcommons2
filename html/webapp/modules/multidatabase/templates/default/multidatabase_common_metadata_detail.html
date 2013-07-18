@@ -20,6 +20,10 @@
 			<{* 一覧用 *}>
 <{* umoto編集フック *}>
 <{php}>
+// default のmultipleタイプの時のセパレーター
+$this->assign('multiple_separator', '<br />');
+// smarty変数をPHPで使う
+$mode = $this->get_template_vars('mode');
 $multidatabase_id = $this->get_template_vars('multidatabase_id');
 $metadata = $this->get_template_vars('metadata');
 $metadata_id = $this->get_template_vars('metadata_id');
@@ -27,20 +31,28 @@ $item = $this->get_template_vars('item');
 $content = $this->get_template_vars('content');
 
 require_once(MODULE_DIR.'/multidatabase/templates/metadataEdit.php');
+
 $metadataEdit = new metadataEdit();
+
 // 表示のスキップ？
-if($metadataEdit->isDisplaySkipItem($multidatabase_id, $metadata_id)){
+if($metadataEdit->isDisplaySkipItem($mode, $multidatabase_id, $metadata_id)){
 	$this->assign('isSkip', 1);
 } else {
 // 編集
-	$content = $metadataEdit->edit($item, $multidatabase_id, $metadata_id);
+	$content = $metadataEdit->edit($mode, $item, $multidatabase_id, $metadata_id);
 	// type置き換え？
 	if($metadataEdit->type != ''){
 		$metadata['type'] = $metadataEdit->type;
 	}
+
+	// metadata編集----------------------------------
 	// name置き換え？
 	if($metadataEdit->replaceName != ''){
 		$metadata['name'] = $metadataEdit->replaceName;
+	}
+	// name_flag置き換え
+	if(strlen($metadataEdit->nameFlag) > 0){
+		$metadata['name_flag'] = $metadataEdit->nameFlag;
 	}
 	$this->assign('metadata', $metadata);
 
@@ -61,6 +73,9 @@ if($metadataEdit->isDisplaySkipItem($multidatabase_id, $metadata_id)){
 		$this->assign('lng', '');
 	}
 	$this->assign('cowname', $metadataEdit->googleMapMarkName);
+	if($metadataEdit->multipleSeparator != ''){
+		$this->assign('multiple_separator', $metadataEdit->multipleSeparator);
+	}
 
 	$this->assign('content', $content);
 	if($content == ''){
@@ -104,7 +119,10 @@ if($metadataEdit->isDisplaySkipItem($multidatabase_id, $metadata_id)){
 			<{/if}>
 		<{elseif $mode == "list" || $mode == "detail"}>
 			<{* 一覧用 *}>
-			<{if $metadata.type == MULTIDATABASE_META_TYPE_FILE}>
+			<{if $metadata.type == 99}>
+				<{$content|smarty:nodefaults}>
+
+			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_FILE}>
 				<{if $content == ""}>
 					&nbsp;
 				<{else}>
@@ -176,9 +194,7 @@ if($metadataEdit->isDisplaySkipItem($multidatabase_id, $metadata_id)){
 				<{/if}>
 			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_MULTIPLE}>
 				<{if ($content != "") }>
-					<{foreach from=$content|smarty:nodefaults item=option}>
-						<{$option}><br />
-					<{/foreach}>
+					<{$multiple_separator|smarty:nodefaults|join:$content}>
 				<{else}>
 					&nbsp;
 				<{/if}>
