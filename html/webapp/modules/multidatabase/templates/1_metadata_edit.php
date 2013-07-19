@@ -1,7 +1,6 @@
 <?php
 // デフォルト指定開始---------------------------------------------------------------
 /* 編集指示 */
-$displaySkipItem = array();
 $sprintfText = array();
 $editFunction = array();
 $sprintfReplace = array();
@@ -16,6 +15,9 @@ $multipleSeparator = array(); // multipleタイプの時のセパレータを指
 
 $nameFlag = array(); // 指定した１もしくは0でmetadata.name_flagを置き換える
 $editFunctionOption = array(); // editFunctionで指定した編集で利用する項目名をarrayで指定する
+
+// ↓キーのみを指定するので個別指定で行う
+//$displaySkipItem = array();
 
 // デフォルト指定終了---------------------------------------------------------------
 

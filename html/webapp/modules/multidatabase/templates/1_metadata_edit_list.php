@@ -2,7 +2,6 @@
 // リスト用
 // デフォルト指定開始---------------------------------------------------------------
 /* 編集指示 */
-$displaySkipItem = array();
 $sprintfText = array();
 $editFunction = array();
 $sprintfReplace = array();
@@ -18,45 +17,26 @@ $multipleSeparator = array(); // multipleタイプの時のセパレータを指
 $nameFlag = array(); // 指定した１もしくは0でmetadata.name_flagを置き換える
 $editFunctionOption = array(); // editFunctionで指定した編集で利用する項目名をarrayで指定する
 
+// ↓キーのみを指定するので個別指定で行う
+//$displaySkipItem = array();
+
 // デフォルト指定終了---------------------------------------------------------------
 
 // ↓ここから個別の指定-------------------------------------------------------------
 
 // 表示をスキップする指定-----------------------------------------------------------
-$displaySkipItem = array(62, 72);
+$displaySkipItem = array(62, 72, 4, 64, 63, 65, 66, 7, 75, 87);
 
 
 // 編集する指定-----------------------------------------------------------
-$sprintfText[63] = '〒%s %s%s %s';
-$editFunction[63] = 'zip';
-$sprintfReplace[63] = array(64, 65, 66);
-$googleMap[67] = array(64, 65);
-$googleMapLL[67] = 94;
-$nameReplace[63] = '住所';
-$optionEdit[74] = array('あり', 1, MULTIDATABASE_META_TYPE_TEXTAREA); // 内容もarray指定。array(値が○○の時だけ編集する, 値は利用しないフラグ, 置き換え時にタイプを変更したいときはtype指定。変更しないときは-1を指定する)
-$sprintfText[74] = '%s';
-$sprintfReplace[74] = array(76);
-
-$optionEdit[75] = array('あり', 1, MULTIDATABASE_META_TYPE_TEXTAREA); // 内容もarray指定。array(値が○○の時だけ編集する, 値は利用しないフラグ, 置き換え時にタイプを変更したいときはtype指定。変更しないときは-1を指定する)
-$sprintfText[75] = '%s';
-$sprintfReplace[75] = array(77);
-
-$optionEdit[87] = array('加入', 0, MULTIDATABASE_META_TYPE_TEXTAREA); // 内容もarray指定。array(値が○○の時だけ編集する, 値は利用しないフラグ, 置き換え時にタイプを変更したいときはtype指定。変更しないときは-1を指定する)
-$sprintfText[87] = '%s 特典：%s';
-$sprintfReplace[87] = array(88);
-
-$googleMapMarkName[67] = 1;
-
-$eqIgnoreString[72] = 'http://';
-$eqIgnoreString[62] = 'http://';
-$eqIgnoreString[7] = 'http://';
-
-$multipleSeparator[8] = '　';
-
 // 以下mode=list時指示
-$sprintfText[7] = '%s';
-$nameFlag[7] = 0;
-$editFunction[7] = 'list_link_buttons';
-$editFunctionOption[7] = array(62, 72);
-$changeType[7] = 99;
+$sprintfText[95] = '%s';
+$nameFlag[95] = 0;
+$editFunction[95] = 'list_header';
+$changeType[95] = 99;
 
+// ドロップイン他　list_buttons 74 75 87
+$sprintfText[74] = '%s';
+$nameFlag[74] = 0;
+$editFunction[74] = 'list_buttons';
+$changeType[74] = 99;
