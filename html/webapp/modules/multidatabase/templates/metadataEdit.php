@@ -231,8 +231,8 @@ class metadataEdit
 				break;
 			case 'list_header':
 				// アイコンと概要を編集
-				$sprintfTemp = '<table><tr><td><img src="%s"></td><td valign="top"><div style="height:100px;">%s</div><div style="line-height:40px;vertical-align:bottom;font-size:0.9em;">%s</div><div style="line-height:40px;vertical-align:bottom;">%s</div></td></tr></table>';
-				$len = 150;
+				$sprintfTemp = '<table><tr><td><img src="%s"></td><td valign="top"><div style="margin-left:10px;height:100px;">%s</div><div style="margin-left:10px;width:450px;float:left;line-height:40px;vertical-align:bottom;font-size:0.9em;">%s</div><div style="width:90px;float:left;line-height:40px;vertical-align:bottom;">%s</div><div style="clear:both;"></div><div style="margin-left:10px;">%s</div></td></tr></table>';
+				$len = 120;
 				// 概要
 				if(mb_strlen($this->item[4]) > $len){
 					$gaiyo = nl2br(mb_substr($this->item[4], 0, $len)).' …';
@@ -257,8 +257,23 @@ class metadataEdit
 				if(($this->item[72] != '') and ($this->item[72] != 'http://')){
 					$list_link_buttons .= sprintf($link, $this->item[72], 'twitter-bird-white-on-blue.png');
 				}
-
-				return sprintf($sprintfTemp, $content, $gaiyo, $address, $list_link_buttons);
+				
+				// list_buttons
+				// ドロップイン　月利用　コワーキングVISAボタン表示 74 75 87
+				$list_buttons = '';
+				$listSprintfTemp = '<img src="images/multidatabase/%s">&nbsp;';
+				
+				if($this->item[74] == 'あり'){
+					$list_buttons .= sprintf($listSprintfTemp, 'dropin_30_100.gif');
+				}
+				if($this->item[75] == 'あり'){
+					$list_buttons .= sprintf($listSprintfTemp, 'monthly_30_100.gif');
+				}
+				if($this->item[87] == '加入'){
+					$list_buttons .= sprintf($listSprintfTemp, 'visa_30_150.gif');
+				}
+				
+				return sprintf($sprintfTemp, $content, $gaiyo, $address, $list_link_buttons, $list_buttons);
 				break;
 			case 'list_buttons':
 				// ドロップイン　月利用　コワーキングVISAボタン表示 74 75 87
