@@ -215,7 +215,7 @@ class metadataEdit
 				break;
 			case 'list_header':
 				// アイコンと概要を編集
-				$sprintfTemp = '<table><tr><td><img src="%s"></td><td valign="top"><div style="margin-left:10px;height:100px;">%s</div><div style="margin-left:10px;width:450px;float:left;line-height:40px;vertical-align:bottom;font-size:0.9em;">%s</div><div style="width:90px;float:left;line-height:40px;vertical-align:bottom;">%s</div><div style="clear:both;"></div><div style="margin-left:10px;">%s</div></td></tr></table>';
+				$sprintfTemp = '<table><tr><td><img src="%s"></td><td valign="top"><div style="margin-left:10px;height:120px;">%s</div><div style="margin-left:10px;width:450px;float:left;line-height:40px;vertical-align:bottom;font-size:0.9em;">%s</div><div style="width:90px;float:left;line-height:40px;vertical-align:bottom;">%s</div><div style="clear:both;"></div><div style="margin-left:10px;">%s</div></td></tr></table>';
 				$len = 120;
 				// 概要
 				if(mb_strlen($this->item[4]) > $len){
@@ -261,12 +261,12 @@ class metadataEdit
 				break;
 			case 'detail_title':
 				// 詳細表示のタイトル　アイコン＋タイトル
-				$detail_title = '<div class="float-left"><img src="%s" style="width:100px"></div><div class="float-left valign-middle" style="line-height:100px;padding-left:10px;font-weight:bold;font-size:1.3em;">%s<div class="float-clear"></div>';
+				$detail_title = '<div class="float-left"><img src="%s" style="width:100px"></div><div class="float-left valign-middle" style="line-height:100px;padding-left:10px;font-weight:bold;font-size:1.3em;background-color:#fff;width:640px;">%s</div><div class="float-clear"></div>';
 				return sprintf($detail_title, $this->item[95], $content);
 				break;
 			case 'detail_gaiyo':
 				// 詳細表示の概要　
-				$detail_gaiyo = '<div style="width:728px;background-color:#ffffff;padding:10px;font-size:1.1em;border:1px solid #ffbb40;">%s</div>';
+				$detail_gaiyo = '<div style="width:728px;background-color:#ffffff;padding:10px;font-size:1.1em;">%s</div>';
 				return sprintf($detail_gaiyo,  nl2br($content));
 				break;
 
