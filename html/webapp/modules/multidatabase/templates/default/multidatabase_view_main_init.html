@@ -4,9 +4,16 @@
 	<{if !$action.metadata_exists}>
 		<{$lang.mdb_noneexists_metadata|smarty:nodefaults}>
 	<{else}>
-		<div class="bold">
+		<div class="bold float-left width_650px">
 			<{$action.mdb_obj.multidatabase_name}>
 		</div>
+<div class="align-right float-left width_100px">
+					<a class="syslink" href="#" title="<{$lang.mdb_search_title|smarty:nodefaults|sprintf:$action.mdb_obj.multidatabase_name}>" onclick="commonCls.sendView('<{$id}>', {'action':'multidatabase_view_main_search_init', 'multidatabase_id':'<{$action.multidatabase_id}>'}, {'loading_el':this}); return false;">
+						<img class="icon" src="<{"search.gif"|get_themes_image}>" alt="<{$lang.mdb_search|smarty:nodefaults}>" title="<{$lang.mdb_search|smarty:nodefaults}>" />
+						<{$lang.mdb_search|smarty:nodefaults}>
+					</a>
+</div>
+<div class="float-clear" style="margin-bottom:5px;"></div>
 		<table class="outer">
 			<tr>
 				<td class="nowrap mdb_right_space">
@@ -23,15 +30,10 @@
 						<{/if}>
 					<{/if}>
 				</td>
-				<td class="align-right nowrap">
-					<a class="syslink" href="#" title="<{$lang.mdb_search_title|smarty:nodefaults|sprintf:$action.mdb_obj.multidatabase_name}>" onclick="commonCls.sendView('<{$id}>', {'action':'multidatabase_view_main_search_init', 'multidatabase_id':'<{$action.multidatabase_id}>'}, {'loading_el':this}); return false;">
-						<img class="icon" src="<{"search.gif"|get_themes_image}>" alt="<{$lang.mdb_search|smarty:nodefaults}>" title="<{$lang.mdb_search|smarty:nodefaults}>" />
-						<{$lang.mdb_search|smarty:nodefaults}>
-					</a>
-				</td>
 			</tr>
 		</table>
 		<{include file = "multidatabase_view_main_init_control.html" position="top"}>
+
 		<{if !$action.exists}>
 			<br /><{$lang.mdb_noneexists_data|smarty:nodefaults}>
 		<{else}>
@@ -46,7 +48,7 @@
 				<{foreach item=item key=key from=$action.mdblist.value}>
 					<{* 詳細部 *}>
 					<{include file="multidatabase_common_metadata.html"}>
-					<br />
+					<{* br / *}>
 				<{/foreach}>
 				<{include file = "multidatabase_view_main_init_control.html" position="bottom"}>
 			<{/if}>

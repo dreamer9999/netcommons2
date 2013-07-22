@@ -20,11 +20,11 @@ function apiLoaded()
 <script src="http://maps.google.com/maps/api/js?v=3&sensor=false&callback=apiLoaded" type="text/javascript" charset="UTF-8"></script>
 <script src="http://ajaxzip3.googlecode.com/svn/trunk/ajaxzip3/ajaxzip3.js" charset="UTF-8"></script>
 <span id="mdb_refresh_target<{$id}>"></span>
-<table style="max-width:753px" summary="">
+<table style="max-width:753px" class="mdb_original_table" summary="">
 	<{if $data_pos_1 != null}>
 		<tr>
-			<td class="valign-top align-left mdb_layout_out_table_td" <{if $data_pos_2 != null && $data_pos_3 != null}>colspan="2"<{/if}>>
-				<table class="mdb_metadata_table width_750px" summary="">
+			<td class="valign-top align-left" <{if $data_pos_2 != null && $data_pos_3 != null}>colspan="2"<{/if}>>
+				<table class="width_750px" summary="">
 					<{assign var="position" value="1"}>
 					<{foreach item=metadata from=$data_pos_1}>
 						<{include file="multidatabase_common_metadata_detail.html"}>
@@ -131,23 +131,6 @@ function apiLoaded()
 			<{$lang._separator|smarty:nodefaults}>
 			<a href="#" title="<{$lang.mdb_detail_confirm_title|smarty:nodefaults}>" class="syslink" onclick="mdbCls['<{$id}>'].confirmContent('<{$action.multidatabase_id}>', '<{$item.content_id}>', '<{$lang.mdb_content_confirm_confirm|smarty:nodefaults}>'); return false;"><{$lang.mdb_detail_confirm|smarty:nodefaults}></a>
 		<{/if}>
-	<{/if}>
-	<{if $mode == "list"}>
-		<{$lang._separator|smarty:nodefaults}>
-
-		<{if strpos($id, MULTIDATABASE_REFERENCE_PREFIX_NAME)}>
-			<a href="#" title="<{$lang.mdb_detail_link_title|smarty:nodefaults}>" class="syslink" onclick="commonCls.sendView('<{$id}>', {action:'multidatabase_view_main_detail', content_id:<{$item.content_id}>, multidatabase_id:<{$action.multidatabase_id}>}, {'loading_el':this}); return false;">
-		<{else}>
-			<{if ($item.short_url != "") }>
-				<{include file="../../../../templates/main/abbreviate_url.html" short_url=$item.short_url assign=short_url}>
-				<a class="syslink"  title="<{$lang.mdb_detail_link_title|smarty:nodefaults}>" href="<{$short_url}>" onclick="if (_nc_current_url.match('<{$item.short_url}>')) {location.reload(); return false;}">
-			<{else}>
-				<{assign var="short_url" value="`$smarty.const.BASE_URL``$smarty.const.INDEX_FILE_NAME`?active_action=multidatabase_view_main_detail&content_id=`$item.content_id`&multidatabase_id=`$action.multidatabase_id`&block_id=`$block_id`#`$smarty.session._id`"}>
-				<a class="syslink"  title="<{$lang.mdb_detail_link_title|smarty:nodefaults}>" href="<{$short_url}>" onclick="if (_nc_current_url.match('content_id=<{$item.content_id}>') && _nc_current_url.match('block_id=<{$block_id}>')) {location.reload(); return false;}">
-			<{/if}>
-		<{/if}>
-			<{$lang.mdb_detail_link|smarty:nodefaults}>
-		</a>
 	<{/if}>
 </div>
 <{/strip}>

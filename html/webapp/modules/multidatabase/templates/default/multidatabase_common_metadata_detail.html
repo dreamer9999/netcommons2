@@ -67,7 +67,7 @@ if($metadataEdit->isDisplaySkipItem($mode, $multidatabase_id, $metadata_id)){
 	if($metadataEdit->googleMapLL != ''){
 		$latlng = explode(',',$metadataEdit->googleMapLL);
 		$this->assign('lat', $latlng[0]);
-		$this->assign('lng', $latlng[0]);
+		$this->assign('lng', $latlng[1]);
 	} else {
 		$this->assign('lat', '');
 		$this->assign('lng', '');
@@ -156,9 +156,29 @@ if($metadataEdit->isDisplaySkipItem($mode, $multidatabase_id, $metadata_id)){
 			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_TEXTAREA}>
 				<{$content|change_tex|nl2br}>
 			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_TEXT}>
-				<{if $action.mdb_obj.title_metadata_id == $metadata.metadata_id}><span style="font-weight:bold;font-size:1.3em;"><{/if}>
+				<{if $action.mdb_obj.title_metadata_id == $metadata.metadata_id}>
+					<span style="font-weight:bold;font-size:1.3em;">
+					<{if $mode == "list"}>
+						<{if strpos($id, MULTIDATABASE_REFERENCE_PREFIX_NAME)}>
+							<a href="#" title="<{$lang.mdb_detail_link_title|smarty:nodefaults}>" class="syslink" onclick="commonCls.sendView('<{$id}>', {action:'multidatabase_view_main_detail', content_id:<{$item.content_id}>, multidatabase_id:<{$action.multidatabase_id}>}, {'loading_el':this}); return false;">
+						<{else}>
+							<{if ($item.short_url != "") }>
+								<{include file="../../../../templates/main/abbreviate_url.html" short_url=$item.short_url assign=short_url}>
+								<a class="syslink"  title="<{$lang.mdb_detail_link_title|smarty:nodefaults}>" href="<{$short_url}>" onclick="if (_nc_current_url.match('<{$item.short_url}>')) {location.reload(); return false;}">
+							<{else}>
+								<{assign var="short_url" value="`$smarty.const.BASE_URL``$smarty.const.INDEX_FILE_NAME`?active_action=multidatabase_view_main_detail&content_id=`$item.content_id`&multidatabase_id=`$action.multidatabase_id`&block_id=`$block_id`#`$smarty.session._id`"}>
+								<a class="syslink"  title="<{$lang.mdb_detail_link_title|smarty:nodefaults}>" href="<{$short_url}>" onclick="if (_nc_current_url.match('content_id=<{$item.content_id}>') && _nc_current_url.match('block_id=<{$block_id}>')) {location.reload(); return false;}">
+							<{/if}>
+						<{/if}>
+					<{/if}>
+				<{/if}>
 				<{$content|change_tex}>
-				<{if $action.mdb_obj.title_metadata_id == $metadata.metadata_id}></span><{/if}>
+				<{if $action.mdb_obj.title_metadata_id == $metadata.metadata_id}>
+					<{if $mode == "list"}>
+					</a>
+					<{/if}>
+				</span>
+				<{/if}>
 			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_ZIP}>
 				<{$content|change_tex}>
 			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_MAIL}>

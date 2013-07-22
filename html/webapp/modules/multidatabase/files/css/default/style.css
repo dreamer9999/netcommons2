@@ -72,7 +72,6 @@
 	padding: 5px 8px !important;
 }
 .mdb_metadata_table {
-	border:1px solid #cccccc;
 	border-bottom-style:none;
 	border-right-style:none;
 	border-left-style:none;
@@ -213,4 +212,10 @@ span.mdb_page_switch a.current {
 .mdb_file_download_count_font {
 	font-size:0.9em;
 	padding-left:4px;
+}
+
+.mdb_original_table {
+	margin-bottom:5px;
+	border:1px solid #ffffcc;
+	background-color:#ffffcc;
 }
