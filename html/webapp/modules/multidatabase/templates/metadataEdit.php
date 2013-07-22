@@ -131,6 +131,7 @@ class metadataEdit
 				$doFlag = 0;
 			}
 		}
+		
 		if((array_key_exists($metadata_id, $sprintfText)) and ($doFlag == 1)) {
 			// 項目編集指示あり
 			// その項目自身の編集指示
@@ -212,23 +213,6 @@ class metadataEdit
 				}
 				return substr($content, 0, 3).'-'.substr($content, 3, 4);
 				break;
-			case 'list_link_buttons':
-			// 今はこれはつかっていない
-				$link = '<a href="%s" target="_blank"><img src="images/multidatabase/%s" style="width:20px;"></a>&nbsp;';
-				// home
-				if($content != ''){
-					$list_link_buttons = sprintf($link, $content, 'web.jpg');
-				}
-				// facebook
-				if(($this->item[$option[0]] != '') and ($this->item[$option[0]] != 'http://')){
-					$list_link_buttons .= sprintf($link, $this->item[$option[0]], 'facebook.png');
-				}
-				// facebook
-				if(($this->item[$option[1]] != '') and ($this->item[$option[1]] != 'http://')){
-					$list_link_buttons .= sprintf($link, $this->item[$option[1]], 'twitter-bird-white-on-blue.png');
-				}
-				return $list_link_buttons;
-				break;
 			case 'list_header':
 				// アイコンと概要を編集
 				$sprintfTemp = '<table><tr><td><img src="%s"></td><td valign="top"><div style="margin-left:10px;height:100px;">%s</div><div style="margin-left:10px;width:450px;float:left;line-height:40px;vertical-align:bottom;font-size:0.9em;">%s</div><div style="width:90px;float:left;line-height:40px;vertical-align:bottom;">%s</div><div style="clear:both;"></div><div style="margin-left:10px;">%s</div></td></tr></table>';
@@ -275,21 +259,15 @@ class metadataEdit
 				
 				return sprintf($sprintfTemp, $content, $gaiyo, $address, $list_link_buttons, $list_buttons);
 				break;
-			case 'list_buttons':
-				// ドロップイン　月利用　コワーキングVISAボタン表示 74 75 87
-				$list_buttons = '';
-				$sprintfTemp = '<img src="images/multidatabase/%s">&nbsp;';
-				
-				if($this->item[74] == 'あり'){
-					$list_buttons .= sprintf($sprintfTemp, 'dropin_30_100.gif');
-				}
-				if($this->item[75] == 'あり'){
-					$list_buttons .= sprintf($sprintfTemp, 'monthly_30_100.gif');
-				}
-				if($this->item[87] == '加入'){
-					$list_buttons .= sprintf($sprintfTemp, 'visa_30_150.gif');
-				}
-				return $list_buttons;
+			case 'detail_title':
+				// 詳細表示のタイトル　アイコン＋タイトル
+				$detail_title = '<div class="float-left"><img src="%s" style="width:100px"></div><div class="float-left valign-middle" style="line-height:100px;padding-left:10px;font-weight:bold;font-size:1.3em;">%s<div class="float-clear"></div>';
+				return sprintf($detail_title, $this->item[95], $content);
+				break;
+			case 'detail_gaiyo':
+				// 詳細表示の概要　
+				$detail_gaiyo = '<div style="width:728px;background-color:#ffffff;padding:10px;font-size:1.1em;border:1px solid #ffbb40;">%s</div>';
+				return sprintf($detail_gaiyo,  nl2br($content));
 				break;
 
 		}

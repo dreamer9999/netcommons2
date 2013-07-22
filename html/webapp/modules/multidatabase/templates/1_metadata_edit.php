@@ -24,7 +24,7 @@ $editFunctionOption = array(); // editFunctionで指定した編集で利用す�
 // ↓ここから個別の指定-------------------------------------------------------------
 
 // 表示をスキップする指定-----------------------------------------------------------
-$displaySkipItem = array(64, 65, 66, 76, 77, 88, 94);
+$displaySkipItem = array(64, 65, 66, 76, 77, 88, 94, 84, 80, 82, 86);
 
 
 // 編集する指定-----------------------------------------------------------
@@ -46,6 +46,23 @@ $optionEdit[87] = array('加入', 0, MULTIDATABASE_META_TYPE_TEXTAREA); // 内�
 $sprintfText[87] = '%s 特典：%s';
 $sprintfReplace[87] = array(88);
 
+$optionEdit[83] = array('あり', 1, MULTIDATABASE_META_TYPE_TEXTAREA); // 内容もarray指定。array(値が○○の時だけ編集する, 値は利用しないフラグ, 置き換え時にタイプを変更したいときはtype指定。変更しないときは-1を指定する)
+$sprintfText[83] = '%s';
+$sprintfReplace[83] = array(84);
+
+$optionEdit[79] = array('可能', 1, MULTIDATABASE_META_TYPE_TEXTAREA); // 内容もarray指定。array(値が○○の時だけ編集する, 値は利用しないフラグ, 置き換え時にタイプを変更したいときはtype指定。変更しないときは-1を指定する)
+$sprintfText[79] = '%s';
+$sprintfReplace[79] = array(80);
+
+$optionEdit[81] = array('可能', 1, MULTIDATABASE_META_TYPE_TEXTAREA); // 内容もarray指定。array(値が○○の時だけ編集する, 値は利用しないフラグ, 置き換え時にタイプを変更したいときはtype指定。変更しないときは-1を指定する)
+$sprintfText[81] = '%s';
+$sprintfReplace[81] = array(82);
+
+$optionEdit[85] = array('あり', 1, MULTIDATABASE_META_TYPE_TEXTAREA); // 内容もarray指定。array(値が○○の時だけ編集する, 値は利用しないフラグ, 置き換え時にタイプを変更したいときはtype指定。変更しないときは-1を指定する)
+$sprintfText[85] = '%s';
+$sprintfReplace[85] = array(86);
+
+
 $googleMapMarkName[67] = 1;
 
 $eqIgnoreString[72] = 'http://';
@@ -54,3 +71,13 @@ $eqIgnoreString[7] = 'http://';
 
 $multipleSeparator[8] = '　';
 
+// 詳細表示のタイトル　detail_title
+$sprintfText[1] = '%s';
+$nameFlag[1] = 0;
+$editFunction[1] = 'detail_title';
+$changeType[1] = 99;
+// 詳細表示の概要　detail_gaiyo
+$sprintfText[4] = '%s';
+$nameFlag[4] = 0;
+$editFunction[4] = 'detail_gaiyo';
+$changeType[4] = 99;

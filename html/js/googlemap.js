@@ -5,7 +5,7 @@ function googlemap_init( id_name, addr_name, lat, lng, cowname) {
 		if(lat == ''){
 		    var latlng = new google.maps.LatLng(41, 133);
 		} else {
-		    var latlng = new google.maps.LatLng(35.678697,139.782142);
+		    var latlng = new google.maps.LatLng(lat,lng);
 		}
 		    var opts = {
 		        zoom: 17,

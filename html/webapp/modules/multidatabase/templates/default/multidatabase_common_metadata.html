@@ -28,6 +28,11 @@ function apiLoaded()
 					<{assign var="position" value="1"}>
 					<{foreach item=metadata from=$data_pos_1}>
 						<{include file="multidatabase_common_metadata_detail.html"}>
+				<{if $metadata.metadata_id == 4}>
+				</table>
+				<table class="mdb_original_table_detail">
+				<{/if}>
+
 					<{/foreach}>
 				</table>
 			</td>

@@ -216,6 +216,21 @@ span.mdb_page_switch a.current {
 
 .mdb_original_table {
 	margin-bottom:5px;
-	border:1px solid #ffffcc;
-	background-color:#ffffcc;
+	border:1px solid #ffbb40;
+	background-color:#ffffe6;
+}
+.mdb_original_table_detail {
+	width:750px;
+	margin-bottom:5px;
+	margin-left:8px;
+	border:1px solid #ffbb40;
+	background-color:#ffffff;
+}
+table.mdb_original_table_detail th {
+	background-color:#ffffe6;
+	border: 1px #ffbb40 solid;
+	width 98px;
+}
+table.mdb_original_table_detail td {
+	border: 1px #ffbb40 solid;
 }
