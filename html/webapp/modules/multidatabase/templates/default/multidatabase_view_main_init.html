@@ -40,6 +40,17 @@
 			<{if $action.mdblist.metadata == ""}>
 				<br /><{$lang.mdb_noneexists_list_metadata|smarty:nodefaults}>
 			<{else}>
+			<{php}>
+			$page_id = intval($_GET['page_id']);
+			$fileName = dirname(__FILE__).'/'.$multidatabase_id.'_'.$page_id.'_'listview.php';
+			if (file_exists($fileName)) {
+			      require($fileName); // $listview_html = 'xxxxxxxx.html';
+			      $this->assign('listview_html', $listview_html);
+			<{/php}>
+			     <{include file=$listview_html}>
+			<{php}>
+			} else {
+			<{/php}>
 				<{assign var="mode" value="list"}>
 				<{assign var="data_pos_1" value=$action.mdblist.metadata.1}>
 				<{assign var="data_pos_2" value=$action.mdblist.metadata.2}>
@@ -51,6 +62,9 @@
 					<{* br / *}>
 				<{/foreach}>
 				<{include file = "multidatabase_view_main_init_control.html" position="bottom"}>
+			<{php}>
+			}
+			<{/php}>
 			<{/if}>
 		<{/if}>
 	<{/if}>
