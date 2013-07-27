@@ -45,8 +45,7 @@
 			$action = $this->get_template_vars('action');
 			$mdblist = $action['mdblist'];
 			$items = $mdblist['value'];
-echo "<pre>";var_dump($items);
-echo "</pre>";
+
 			$fileName = WEBAPP_DIR.'/modules/multidatabase/templates/'.$action['multidatabase_id'].'_'.$page_id.'_listview.php';
 			if (file_exists($fileName)) {
 			      require($fileName); // $listview_html = 'xxxxxxxx.html';

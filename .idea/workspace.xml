@@ -4,9 +4,8 @@
     <list default="true" id="a1daf2f1-7026-42b0-bab3-cb6c0702007c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/js/googlemap.js" afterPath="$PROJECT_DIR$/html/js/googlemap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/1_metadata_edit.php" afterPath="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/1_metadata_edit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata.html" afterPath="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata_detail.html" afterPath="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata_detail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata_googlemap.html" afterPath="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata_googlemap.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_view_main_init.html" afterPath="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_view_main_init.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/metadataEdit.php" afterPath="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/metadataEdit.php" />
     </list>
     <ignored path="nc20m.iws" />
@@ -26,7 +25,35 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="ComponentLocator_Modules.class.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/maple/componentlocator/ComponentLocator_Modules.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="105" column="12" selection-start="2804" selection-end="2804" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Getsize.class.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/webapp/modules/backup/view/main/getsize/Getsize.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="88" column="19" selection-start="3002" selection-end="3002" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Compmain.class.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/html/webapp/modules/pages/components/Compmain.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="279" column="42" selection-start="11662" selection-end="11672" vertical-scroll-proportion="0.0450237">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -79,7 +106,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -90,209 +117,7 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nc20m" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nc20m" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ncgocow" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nc20m" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ncgocow" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nc20m" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ncgocow" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nc20m" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ncgocow" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nc20m" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ncgocow" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="multidatabase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nc20m" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ncgocow" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nc20m" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ncgocow" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nc20m" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ncgocow" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nc20m" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ncgocow" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="announcement" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
@@ -306,7 +131,7 @@
     <property name="options.lastSelected" value="liveEdit" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cses" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="123" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="914" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="908" />
@@ -397,15 +222,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="2" y="4" width="1337" height="872" extended-state="1" />
+    <frame x="2" y="4" width="1337" height="872" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32909605" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.56773686" sideWeight="0.670904" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27486297" sideWeight="0.670904" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27877837" sideWeight="0.670904" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -414,6 +238,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.56773686" sideWeight="0.670904" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -474,21 +299,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_view_edit_metadata_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="134" selection-start="8683" selection-end="8683" vertical-scroll-proportion="0.3176661" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/validator/Validator_MetadataInput.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="245" column="82" selection-start="8394" selection-end="8394" vertical-scroll-proportion="0.63492066" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/language/chinese/main.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="204" column="0" selection-start="7175" selection-end="7175" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/language/english/main.ini">
       <provider selected="true" editor-type-id="text-editor">
         <state line="204" column="0" selection-start="9944" selection-end="9944" vertical-scroll-proportion="0.33281493" />
@@ -496,87 +306,81 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/components/View.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="603" column="21" selection-start="17755" selection-end="17755" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="603" column="21" selection-start="17755" selection-end="17755" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_view_edit_metadata.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="15" selection-start="575" selection-end="642" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="13" column="15" selection-start="575" selection-end="642" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/metadataEdit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="9" selection-start="3079" selection-end="3079" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="131" column="9" selection-start="3079" selection-end="3079" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/webapp/components/blocks/Action.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="667" column="25" selection-start="17278" selection-end="17278" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="667" column="25" selection-start="17278" selection-end="17278" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/webapp/components/common/Main.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="405" column="30" selection-start="12982" selection-end="12987" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="405" column="30" selection-start="12982" selection-end="12987" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/view/main/sequence/Sequence.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="21" selection-start="1435" selection-end="1435" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="59" column="21" selection-start="1435" selection-end="1435" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/webapp/modules/assignment/components/View.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="750" column="13" selection-start="17703" selection-end="17703" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="750" column="13" selection-start="17703" selection-end="17703" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/webapp/modules/backup/action/main/init/Init.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="111" column="39" selection-start="2905" selection-end="2915" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="111" column="39" selection-start="2905" selection-end="2915" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/webapp/style/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="179" selection-end="179" vertical-scroll-proportion="0.04222222">
-          <folding />
-        </state>
+        <state line="19" column="0" selection-start="179" selection-end="179" vertical-scroll-proportion="0.04222222" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="9" selection-start="376" selection-end="376" vertical-scroll-proportion="0.0900474">
-          <folding />
-        </state>
+        <state line="9" column="9" selection-start="376" selection-end="376" vertical-scroll-proportion="0.0900474" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/webapp/templates/main/footer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="423" selection-end="423" vertical-scroll-proportion="-6.107143">
-          <folding>
-            <element signature="e#487#643#0" expanded="true" />
-            <element signature="e#583#635#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="9" column="0" selection-start="423" selection-end="423" vertical-scroll-proportion="-6.107143" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/config/main.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="7" selection-start="147" selection-end="147" vertical-scroll-proportion="0.16888888">
+        <state line="4" column="7" selection-start="147" selection-end="147" vertical-scroll-proportion="0.16888888" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/maple/componentlocator/ComponentLocator_Modules.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="105" column="12" selection-start="2804" selection-end="2804" vertical-scroll-proportion="-0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/webapp/modules/backup/view/main/getsize/Getsize.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="19" selection-start="3002" selection-end="3002" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/webapp/modules/pages/components/Compmain.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="279" column="42" selection-start="11662" selection-end="11672" vertical-scroll-proportion="0.0450237">
           <folding />
         </state>
       </provider>
