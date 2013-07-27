@@ -17,7 +17,7 @@ metadata_id表示時にこの該当multidatabase_idファイルが存在し、
 該当metadata_idのsprintfTextがあればここで編集した結果を表示する
 
 その項目自身の編集
-ex.郵便番号　1350061　→135-0061
+ex.郵便番号　2220011　→222-0011
 $editFunction[*metadata_id*] = 'zip';
 
 その項目以外の編集
@@ -28,10 +28,10 @@ $sprintfAdditonalArray[*metadata_id*] = array(64, 65);
 
 
 利用例
-63 郵便番号　1350061
+63 郵便番号　1350064
 64 都道府県　東京都
-65 住所     江東区豊洲３３３
-66 ビル名など     豊洲ビル3F
+65 住所     東京都江東区青海３３３
+66 ビル名など     青海ビル3F
 
 
 $sprintfText[63] = '〒%s %s%s %s';

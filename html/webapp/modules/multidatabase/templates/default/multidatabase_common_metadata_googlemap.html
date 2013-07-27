@@ -1,329 +1,36 @@
 <{strip}>
-<{assign var="metadata_id" value=$metadata.metadata_id}>
-<{assign var="multidatabase_id" value=$action.multidatabase_id}>
-<{if $action_name=="multidatabase_view_main_init" || $action_name=="multidatabase_view_main_detail"}>
-	<{assign var="content" value=$item.$metadata_id|smarty:nodefaults}>
-	<{if $metadata.type == MULTIDATABASE_META_TYPE_FILE && $content != "" && $metadata.file_count_flag == _ON}>
-		<{assign var="upload_id_var" value="upload_id"|cat:$metadata_id}>
-		<{assign var="download_count_var" value="download_count"|cat:$metadata_id}>
-		<{assign var="upload_id" value=$item.$upload_id_var}>
-		<{assign var="download_count" value=$item.$download_count_var}>
-	<{/if}>
-<{elseif $action_name=="multidatabase_view_main_content_init"}>
-	<{assign var="content" value=$smarty.session.multidatabase_content.$block_id.$metadata_id|smarty:nodefaults}>
-<{elseif $action_name=="multidatabase_view_edit_metadata_preview"}>
-	<{assign var="content" value=$lang.mdb_sample_text|smarty:nodefaults}>
-<{/if}>
-<{assign var="isSkip" value=0}>
+<script type="text/javascript">
+var api_loaded_flag;
+var document_loaded_flag;
 
-			<{if $mode == "list" || $mode == "detail"}>
-			<{* 一覧用 *}>
-<{* umoto編集フック *}>
-<{php}>
-// default のmultipleタイプの時のセパレーター
-$this->assign('multiple_separator', '<br />');
-// smarty変数をPHPで使う
-$mode = $this->get_template_vars('mode');
-$multidatabase_id = $this->get_template_vars('multidatabase_id');
-$metadata = $this->get_template_vars('metadata');
-$metadata_id = $this->get_template_vars('metadata_id');
-$item = $this->get_template_vars('item');
-$content = $this->get_template_vars('content');
-
-require_once(MODULE_DIR.'/multidatabase/templates/metadataEdit.php');
-
-$metadataEdit = new metadataEdit();
-
-// 表示のスキップ？
-if($metadataEdit->isDisplaySkipItem($mode, $multidatabase_id, $metadata_id)){
-	$this->assign('isSkip', 1);
-} else {
-// 編集
-	$content = $metadataEdit->edit($mode, $item, $multidatabase_id, $metadata_id);
-	// type置き換え？
-	if($metadataEdit->type != ''){
-		$metadata['type'] = $metadataEdit->type;
-	}
-
-	// metadata編集----------------------------------
-	// name置き換え？
-	if($metadataEdit->replaceName != ''){
-		$metadata['name'] = $metadataEdit->replaceName;
-	}
-	// name_flag置き換え
-	if(strlen($metadataEdit->nameFlag) > 0){
-		$metadata['name_flag'] = $metadataEdit->nameFlag;
-	}
-	$this->assign('metadata', $metadata);
-
-	// googleMap?
-	if($metadataEdit->googleMapAlt != ''){
-		$this->assign('googlemap_alt', $metadataEdit->googleMapAlt);
-	} else {
-		$this->assign('googlemap_alt', '');
-	}
-
-	// googleMap緯度経度
-	if($metadataEdit->googleMapLL != ''){
-		$latlng = explode(',',$metadataEdit->googleMapLL);
-		$this->assign('lat', $latlng[0]);
-		$this->assign('lng', $latlng[1]);
-	} else {
-		$this->assign('lat', '');
-		$this->assign('lng', '');
-	}
-	$this->assign('cowname', $metadataEdit->googleMapMarkName);
-	if($metadataEdit->multipleSeparator != ''){
-		$this->assign('multiple_separator', $metadataEdit->multipleSeparator);
-	}
-
-	$this->assign('content', $content);
-	if($content == ''){
-		$this->assign('isSkip', 1);
+function showMap(){
+    if (api_loaded_flag == 1){
+        if (document_loaded_flag == 1){
+            googlemap_init_all('google_map', jQuery('#google_map').attr('alt'), jQuery('#google_map').attr('lat'), jQuery('#google_map').attr('lng'), jQuery('#google_map').attr('cowname'));
+        }
 	}
 }
+
+function apiLoaded()
+{
+	api_loaded_flag = 1;
+	showMap();
+}
+</script>
+<script src="http://maps.google.com/maps/api/js?v=3&sensor=false&callback=apiLoaded" type="text/javascript" charset="UTF-8"></script>
+
+<{php}>
+	$this->assign('googlemap_alt', "東京都江東区豊洲3-3-3");
 <{/php}>
-<{* umoto編集フック *}>
-			<{/if}>
-<{if $isSkip == 0}>
-<tr style="max-width:750px;">
-	<{if ($metadata.type != MULTIDATABASE_META_TYPE_IMAGE && $metadata.name_flag == _ON) || $mode == "regist" }>
-		<th class="mdb_detail_head nowrap <{if $position == 1 || $position == 4}>mdb_detail_head_top_bottom<{/if}> width_100px" scope="row">
-			<{if $mode == regist}><label for="mdb_metadatas_<{$metadata.metadata_id}><{$id}>"><{/if}>
-
-				<{$metadata.name}>
-			<{if $mode == regist}></label><{/if}>
-			<{* 必須 *}>
-			<{if $mode == "regist"}>
-				<{if $metadata.require_flag == _ON}>
-					<{$lang.mdb_require_flag|smarty:nodefaults}>
-				<{/if}>
-			<{/if}>
-		</th>
-	<{/if}>
-	<{if ($metadata.type == MULTIDATABASE_META_TYPE_IMAGE && ($mode == "confirm" || $mode == "preview" || $mode == "detail" || $mode == "list")) || $metadata.name_flag == _OFF}>
-		<td class="mdb_edit_detail" colspan="2">
-	<{else}>
-		<{if $position == 1 || $position == 4}>
-		<td class="mdb_edit_detail width_650px">
-		<{else}>
-		<td class="mdb_edit_detail">
-		<{/if}>
-	<{/if}>
-		<{if $mode == "preview" }>
-			<{* preview用 *}>
-			<{if $metadata.type == MULTIDATABASE_META_TYPE_IMAGE}>
-				<img src="<{""|get_image_url}><{$smarty.const.MULTIDATABASE_SAMPLE_IMAGE}>" class="mdb_metadata_image" alt="NO IMAGE" />
-			<{else}>
-				<{$content}>
-			<{/if}>
-		<{elseif $mode == "list" || $mode == "detail"}>
-			<{* 一覧用 *}>
-			<{if $metadata.type == 99}>
-				<{$content|smarty:nodefaults}>
-
-			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_FILE}>
-				<{if $content == ""}>
-					&nbsp;
-				<{else}>
-					<{$content|smarty:nodefaults}>
-					<{if $metadata.file_count_flag == _ON}>
-						<span id="mdb_file_download_count_<{$upload_id}><{$id}>" class="mdb_file_download_count_font">(<{$download_count}>)</span>
-					<{/if}>
-				<{/if}>
-			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_IMAGE}>
-				<{if $content == ""}>
-					<img src="<{""|get_image_url}><{$smarty.const.MULTIDATABASE_SAMPLE_IMAGE}>" class="mdb_metadata_image" alt="NO IMAGE" />
-				<{else}>
-					<{$content|smarty:nodefaults}>
-				<{/if}>
-			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_LINK}>
-				<a class="syslink" href="<{$content}>" title="<{$lang.mdb_open_title|smarty:nodefaults|sprintf:$content}>" target="_blank"><{$content}></a>
-            <{elseif $metadata.type == MULTIDATABASE_META_TYPE_LINK}>
-                <{if $content == ""}>
-                <img src="<{""|get_image_url}><{$smarty.const.MULTIDATABASE_SAMPLE_IMAGE}>" class="mdb_metadata_image" alt="NO IMAGE" />
-                <{else}>
-                <img src="<{$content|smarty:nodefaults}>">
-                <{/if}>
-            <{elseif $metadata.type == MULTIDATABASE_META_TYPE_IMAGE_URL}>
-                <{if $content == ""}>
-                <img src="<{""|get_image_url}><{$smarty.const.MULTIDATABASE_SAMPLE_IMAGE}>" class="mdb_metadata_image" alt="NO IMAGE" />
-                <{else}>
-                <img src="<{$content|smarty:nodefaults}>" id="image_url" style="width:750px;max-height:400px;">
-                <{/if}>
-			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_WYSIWYG}>
-				<{$content|smarty:nodefaults|wysiwig_convert_url}>
-			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_TEXTAREA}>
-				<{$content|change_tex|nl2br}>
-			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_TEXT}>
-				<{if $action.mdb_obj.title_metadata_id == $metadata.metadata_id}>
-					<span style="font-weight:bold;font-size:1.3em;">
-					<{if $mode == "list"}>
-						<{if strpos($id, MULTIDATABASE_REFERENCE_PREFIX_NAME)}>
-							<a href="#" title="<{$lang.mdb_detail_link_title|smarty:nodefaults}>" class="syslink" onclick="commonCls.sendView('<{$id}>', {action:'multidatabase_view_main_detail', content_id:<{$item.content_id}>, multidatabase_id:<{$action.multidatabase_id}>}, {'loading_el':this}); return false;">
-						<{else}>
-							<{if ($item.short_url != "") }>
-								<{include file="../../../../templates/main/abbreviate_url.html" short_url=$item.short_url assign=short_url}>
-								<a class="syslink"  title="<{$lang.mdb_detail_link_title|smarty:nodefaults}>" href="<{$short_url}>" onclick="if (_nc_current_url.match('<{$item.short_url}>')) {location.reload(); return false;}">
-							<{else}>
-								<{assign var="short_url" value="`$smarty.const.BASE_URL``$smarty.const.INDEX_FILE_NAME`?active_action=multidatabase_view_main_detail&content_id=`$item.content_id`&multidatabase_id=`$action.multidatabase_id`&block_id=`$block_id`#`$smarty.session._id`"}>
-								<a class="syslink"  title="<{$lang.mdb_detail_link_title|smarty:nodefaults}>" href="<{$short_url}>" onclick="if (_nc_current_url.match('content_id=<{$item.content_id}>') && _nc_current_url.match('block_id=<{$block_id}>')) {location.reload(); return false;}">
-							<{/if}>
-						<{/if}>
-					<{/if}>
-				<{/if}>
-				<{$content|change_tex}>
-				<{if $action.mdb_obj.title_metadata_id == $metadata.metadata_id}>
-					<{if $mode == "list"}>
-					</a>
-					<{/if}>
-				</span>
-				<{/if}>
-			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_ZIP}>
-				<{$content|change_tex}>
-			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_MAIL}>
-				<{if ($content != "") }>
-					<{assign var="emailArr" value="@"|explode:$content}>
-					<{$emailArr.0|smarty:nodefaults}>
-					<img class="icon" src="<{"mailmark.gif"|get_modules_image}>" alt="" title="" />
-					<{$emailArr.1|smarty:nodefaults}>
-				<{else}>
-					&nbsp;
-				<{/if}>
-			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_DATE}>
-				<{if ($content != "") }>
-					<{$content|timezone_date_format:$lang._date_format|smarty:nodefaults}>
-				<{else}>
-					&nbsp;
-				<{/if}>
-			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_AUTONUM}>
-				<{if ($content|intval > 0) }>
-					<{$content|intval}>
-				<{/if}>
-			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_INSERT_TIME}>
-				<{if ($item.insert_time != "") }>
-					<{$item.insert_time|timezone_date_format:$lang._full_date_format|smarty:nodefaults}>
-				<{else}>
-					&nbsp;
-				<{/if}>
-			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_UPDATE_TIME}>
-				<{if ($item.update_time != "") }>
-					<{$item.update_time|timezone_date_format:$lang._full_date_format|smarty:nodefaults}>
-				<{else}>
-					&nbsp;
-				<{/if}>
-			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_MULTIPLE}>
-				<{if ($content != "") }>
-					<{$multiple_separator|smarty:nodefaults|join:$content}>
-				<{else}>
-					&nbsp;
-				<{/if}>
-			<{else}>
-				<{$content}>
-			<{/if}>
-			<{* umoto編集フック *}>
-			<{if $googlemap_alt != ''}>
-			<div id="google_map" style="margin-top:10px;margin-bottom:10px;text-align:center;width:100%;height:400px;" alt="<{$googlemap_alt}>" lat="<{$lat}>" lng="<{$lng}>" cowname="<{$cowname}>"></div>
-			<div class="align-center">
-			<{if $lat != ''}>
-			<a href="https://maps.google.co.jp/maps?q=<{$lat}>,<{$lng}>&ie=UTF-8&hl=ja" target="_blank">
-			<{else}>
-			<a href="https://maps.google.co.jp/maps?q=<{$googlemap_alt}>&ie=UTF-8&hl=ja" target="_blank">
-			<{/if}>
-			大きな地図で見る</a>
-			</div>
-			<{/if}>
-			<{* umoto編集フック *}>
-
-
-
-		<{elseif $mode == "regist"}>
-			<{if $metadata.type == MULTIDATABASE_META_TYPE_TEXT || $metadata.type == MULTIDATABASE_META_TYPE_MAIL}>
-				<{* テキスト *}>
-				<input name="datas[<{$metadata.metadata_id}>]" id="mdb_metadatas_<{$metadata.metadata_id}><{$id}>" type="text" style="width:<{$smarty.const.MULTIDATABASE_INPUT_TEXTBOX_DEFAULT_SIZE}>px;" value="<{$content}>"/>
-			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_ZIP}>
-				<{* 郵便番号 *}>
-				<input name="datas[<{$metadata.metadata_id}>]" id="mdb_metadatas_<{$metadata.metadata_id}><{$id}>" type="text" style="width:<{$smarty.const.MULTIDATABASE_INPUT_TEXTBOX_DEFAULT_SIZE}>px;" value="<{$content}>" onKeyUp="AjaxZip3.zip2addr(this,'','datas[<{$metadata.metadata_id+1}>]','datas[<{$metadata.metadata_id+2}>]')"/>
-
-			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_LINK}>
-				<input name="datas[<{$metadata.metadata_id}>]" id="mdb_metadatas_<{$metadata.metadata_id}><{$id}>" type="text" style="width:<{$smarty.const.MULTIDATABASE_INPUT_TEXTBOX_DEFAULT_SIZE}>px;" value="<{if $content != '' }><{$content}><{else}>http://<{/if}>"/>
-            <{elseif $metadata.type == MULTIDATABASE_META_TYPE_IMAGE_URL}>
-            <input name="datas[<{$metadata.metadata_id}>]" id="mdb_metadatas_<{$metadata.metadata_id}><{$id}>" type="text" style="width:<{$smarty.const.MULTIDATABASE_INPUT_TEXTBOX_DEFAULT_SIZE}>px;" value="<{if $content != '' }><{$content}><{else}>http://<{/if}>"/>
-
-			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_TEXTAREA}>
-				<{* テキストエリア *}>
-				<textarea name="datas[<{$metadata.metadata_id}>]" id="mdb_metadatas_<{$metadata.metadata_id}><{$id}>" cols=<{$smarty.const.MULTIDATABASE_INPUT_TEXTAREA_COLS}> rows=<{$smarty.const.MULTIDATABASE_INPUT_TEXTAREA_ROWS}>><{$content}></textarea>
-			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_IMAGE || $metadata.type == MULTIDATABASE_META_TYPE_FILE}>
-				<{* 画像とファイル 登録用 *}>
-				<input name="files[<{$metadata.metadata_id}>]" id="mdb_metadatas_<{$metadata.metadata_id}><{$id}>" type="file" value="" />
-				<{if $metadata.type == MULTIDATABASE_META_TYPE_FILE && $metadata.file_password_flag == _ON}>
-					<{assign var="password_var" value=$metadata_id|cat:"_file_password"}>
-					<{assign var="file_password" value=$smarty.session.multidatabase_content.$block_id.$password_var|smarty:nodefaults}>
-					<br />
-					<label for="mdb_metadata_file_password_<{$metadata.metadata_id}><{$id}>">
-						<input type="checkbox" id="mdb_metadata_file_password_<{$metadata.metadata_id}><{$id}>" name="password_checkbox[<{$metadata.metadata_id}>]" <{if $file_password != ""}> checked=checked <{/if}> value="<{$smarty.const._ON}>" onclick="if(this.checked == true){commonCls.displayVisible($('mdb_metadata_file_password_input_div_<{$metadata.metadata_id}><{$id}>'));}else{commonCls.displayNone($('mdb_metadata_file_password_input_div_<{$metadata.metadata_id}><{$id}>'));$('mdb_metadata_file_password_input_<{$metadata.metadata_id}><{$id}>').value='';}">
-						<{$lang.mdb_add_file_password|smarty:nodefaults}>
-					</label>
-					<div id="mdb_metadata_file_password_input_div_<{$metadata.metadata_id}><{$id}>" <{if $file_password == ""}>class="display-none"<{/if}>>
-						<input type="text" id="mdb_metadata_file_password_input_<{$metadata.metadata_id}><{$id}>" name="passwords[<{$metadata.metadata_id}>]" maxlength="100" value='<{if $file_password != ""}><{$file_password}><{/if}>'>
-					</div>
-				<{/if}>
-				<{if $content != ""}>
-					<br />
-					<{if $metadata.require_flag != _ON}>
-						<label for="mdb_metadata_image_delete_<{$metadata.metadata_id}><{$id}>">
-							<input type="checkbox" id="mdb_metadata_image_delete_<{$metadata.metadata_id}><{$id}>" name="datas[<{$metadata.metadata_id}>]" value="<{$smarty.const._ON}>">
-							<{if $metadata.type == MULTIDATABASE_META_TYPE_IMAGE}>
-								<{$lang.mdb_delete_image|smarty:nodefaults}>
-							<{elseif $metadata.type == MULTIDATABASE_META_TYPE_FILE}>
-								<{$lang.mdb_delete_file|smarty:nodefaults}>
-							<{/if}>
-						</label>
-					<{/if}>
-					<br /><{$content|smarty:nodefaults}>
-				<{/if}>
-			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_SECTION}>
-				<{* セレクトリスト *}>
-				<select name="datas[<{$metadata.metadata_id}>]" id="mdb_metadatas_<{$metadata.metadata_id}><{$id}>">
-					<{* 未選択 *}>
-					<{foreach from=$metadata.select_content_array|smarty:nodefaults item=option name=selectloop}>
-						<option value="<{$option}>" <{if $content === $option}> selected="selected"<{/if}>>
-							<{$option}>
-						</option>
-					<{/foreach}>
-				</select>
-			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_MULTIPLE}>
-				<{foreach from=$metadata.select_content_array|smarty:nodefaults item=option name=selectloop}>
-					<label class="nowrap" for="mdb_metadatas_<{$metadata.metadata_id}>_<{$smarty.foreach.selectloop.iteration}><{$id}>">
-						<input name="datas[<{$metadata.metadata_id}>][]" type="checkbox" value="<{$option}>" id="mdb_metadatas_<{$metadata.metadata_id}>_<{$smarty.foreach.selectloop.iteration}><{$id}>" <{if isset($content.$option|smarty:nodefaults)}>checked="checked" <{/if}>/>
-						<{$option}><br />
-					</label>
-				<{/foreach}>
-			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_WYSIWYG}>
-				<script class="nc_script" type="text/javascript">
-					mdbCls["<{$id}>"].wysiwygInit(<{$metadata.metadata_id}>);
-				</script>
-				<textarea id="mdb_metadatas_<{$metadata.metadata_id}><{$id}>" class="textarea_<{$metadata.metadata_id}><{$id}>" rows="10" cols="60"><{$content|smarty:nodefaults|wysiwig_convert_url|escape:"html"}></textarea>
-				<input type="hidden" name="datas[<{$metadata.metadata_id}>]" />
-			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_AUTONUM}>
-				<input name="datas[<{$metadata.metadata_id}>]" id="mdb_metadatas_<{$metadata.metadata_id}><{$id}>" type="text" style="width:<{$smarty.const.MULTIDATABASE_INPUT_AUTONUM_DEFAULT_SIZE}>px;" value="<{if ($content != "") }><{$content|intval}><{else}><{$lang.mdb_type_autonum|smarty:nodefaults}><{/if}>" disabled="disabled" />
-			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_DATE}>
-				<input id="mdb_metadatas_<{$metadata.metadata_id}><{$id}>" name="datas[<{$metadata.metadata_id}>]" type="text" value="<{if ($metadata.require_flag == _ON || $content != "") }><{$content|timezone_date_format:$lang._date_format|smarty:nodefaults}><{/if}>" size="13" maxlength="10" />
-				<script class="nc_script" type="text/javascript">
-					mdbCls["<{$id}>"].calendarInit(<{$metadata.metadata_id}>);
-				</script>
-			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_INSERT_TIME || $metadata.type == MULTIDATABASE_META_TYPE_UPDATE_TIME}>
-				<{if ($content != "") }>
-					<{$content|timezone_date_format:$lang._full_date_format|smarty:nodefaults}>
-				<{else}>
-					&nbsp;
-				<{/if}>
-			<{/if}>
-		<{/if}>
-	</td>
-</tr>
-<{* umoto編集フック *}>
+<{if $googlemap_alt != ''}>
+<div id="google_map" style="margin-top:10px;margin-bottom:10px;text-align:center;width:100%;height:400px;" alt="<{$googlemap_alt}>" lat="<{$lat}>" lng="<{$lng}>" cowname="<{$cowname}>"></div>
+<div class="align-center">
+<{if $lat != ''}>
+<a href="https://maps.google.co.jp/maps?q=<{$lat}>,<{$lng}>&ie=UTF-8&hl=ja" target="_blank">
+<{else}>
+<a href="https://maps.google.co.jp/maps?q=<{$googlemap_alt}>&ie=UTF-8&hl=ja" target="_blank">
 <{/if}>
-<{* umoto編集フック *}>
-
+大きな地図で見る</a>
+</div>
+<{/if}>
 <{/strip}>
