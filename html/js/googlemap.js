@@ -3,81 +3,69 @@ var my_google_geo;
 
 var glat = new Array();
 var glng = new Array();
-var lists = new Array();
+var cowname = new Array();
+var content_id = new Array();
+var detail_url = new Array();
 var gi;
 
-function googlemap_init_alltest( id_name, addr_name, lat, lng, cowname) {
-		my_google_geo = new google.maps.Geocoder();
-		data = new Array() 
-		i = 0;
-		gi = -1;
-		data = new Array("Dol'sDessin", "東京都港区南青山5−12−5","");
-		lists[i] = data;
-		i++;
-		data = new Array("CONNECTING THE DOTS", "東京都渋谷区神南1-20-7","");
-		lists[i] = data;
-		i++;
-		data = new Array("PAX Coworking", "東京都世田谷区経堂1－25－18","");
-		lists[i] = data;
-		i++;
-		data = Array("下北沢オープンソースcafé", "東京都世田谷区代田6-11-14","");
-		lists[i] = data;
-		i++;
-		data = Array("ネコワーキング", "東京都千代田区三崎町３－１０－５","");
-		lists[i] = data;
-		i++;
-		data = Array("CERO", "東京都千代田区神田佐久間町１－１４","");
-		lists[i] = data;
-		i++;
-		data = Array("コワーキングスペース茅場町 Co-Edo", "東京都中央区新川1-3-4","");
-		lists[i] = data;
-		last = i;
-		i++;
-		max = i;
-		for (var i = 0; i < max; i++) {
-			data = new Array();
-			data = lists[i];
-			alert('name=' + data[0] + ' address=' + data[1] + ' i=' + i + ' last=' + last);
-			//if(lat == ''){
-				my_google_geo.geocode(
-				  {
-				    'address': data[1],
-				    'language': 'ja'
-				  },
-				  function(results, status){
-				    if(status==google.maps.GeocoderStatus.OK){
-				       var p = results[0].geometry.location;
-						make_all_map_test_pre(p.lat(), p.lng(), last);
-				    }
-				  }
-				);
-			//}
-		}
+
+function googlemap_init_all(id_name) {
+	my_google_geo = new google.maps.Geocoder();
+	gi = -1;
+	max = item_last -1;
+	for (i = 0; i < item_last; i++){
+		var each_item = item[i];
+//console.log('each_item1 ' + each_item[1]);
+console.log('each_item2 ' + each_item[2]);
+		cowname[i] = each_item[1];
+		content_id[i] = each_item[0];
+		detail_url[i] = each_item[4];
+		my_google_geo.geocode(
+		  {
+		    'address': each_item[2],
+		    'language': 'ja'
+		  },
+		  function(results, status){
+		    if(status==google.maps.GeocoderStatus.OK){
+		       var p = results[0].geometry.location;
+				make_all_map_pre(each_item, p.lat(), p.lng(), max);
+		    }
+		  }
+		);
+	}
+
 }
 
-function make_all_map_test_pre(lat, lng, last)
+function make_all_map_pre(data, lat, lng, max)
 {
-alert('max ' + max);
-gi++;
-	glat[gi] = lat;
-	glng[gi] = lng;
+	gi++;
+
+	if(data[3] != ''){
+		var latlng = data[3].split('|');
+		glat[gi] = latlng[0];
+		glng[gi] = latlng[1];
+	} else {
+		glat[gi] = lat;
+		glng[gi] = lng;
+	}
 	// 全てのlatlngが取得されたかどうか？
-	if(gi == last){
-		alert('last');
-		max = last + 1;
-		make_all_map_test(max);
+	
+	if(gi == max){
+		make_all_map(max);
 	} else {
 	}
 }
 
-function make_all_map_test(max)
+function make_all_map(max)
 {
-		last = max - 1;
+//console.log('last ' + last);
 
-		var latlng = new google.maps.LatLng(glat[last],glng[last]);
+		var latlng = new google.maps.LatLng(glat[max],glng[max]);
+//console.log('glatlast ' + glat[last]);
+//console.log('glnglast ' + glng[last]);
 
 		var opts = {
-			zoom: 17,
+			zoom: 13,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			center: latlng
 		};
@@ -85,70 +73,34 @@ function make_all_map_test(max)
 
 		my_google_map = new google.maps.Map(document.getElementById(id_name), opts);
 
-		for (var i = 0; i < max; i++) {
-			data = new Array();
-			data = lists[i];
+		for (var i = 0; i <= max; i++) {
+console.log('cownamesss ' + cowname[i]);
+//console.log('glat ' + glat[i]);
+//console.log('glng ' + glng[i]);
 			var mlatlng = new google.maps.LatLng(glat[i],glng[i]);
 			var marker = new google.maps.Marker({
 				position: mlatlng,
 				map: my_google_map,
-				title:data[0]
+				title:htmlspecialstrars_decode(cowname[i]),
 				});
+			attachMessage(marker, "<a href='" + detail_url[i] + "'>" + htmlspecialstrars_decode(cowname[i]) + "</a>");
+			// clickイベントを取得するListenerを追加
+		//	google.maps.event.addListener(marker, 'click', clickEventFunc);
 		}
 }
 
-
-
-function googlemap_init_all( id_name, addr_name, lat, lng, cowname) {
-		my_google_geo = new google.maps.Geocoder();
-
-		glat = 0;
-		glng = 0;
-
-		if(lat == ''){
-			my_google_geo.geocode(
-			  {
-			    'address': '東京都江東区豊洲3-3-3',
-			    'language': 'ja'
-			  },
-			  function(results, status){
-			    if(status==google.maps.GeocoderStatus.OK){
-			       var p = results[0].geometry.location;
-			        glat = p.lat();
-			        glng = p.lng();
-					make_all_map(glat, glng);
-			    }
-			  }
-			);
-		}
+function clickEventFunc(event) {
+  alert(event.content());
 }
+ function attachMessage(marker, msg) {
+    google.maps.event.addListener(marker, 'click', function(event) {
+      new google.maps.InfoWindow({
+        content: msg
+      }).open(marker.getMap(), marker);
+    });
+  }
 
-function make_all_map(glat, glng)
-{
-		var latlng = new google.maps.LatLng(glat,glng);
 
-		var opts = {
-			zoom: 17,
-			mapTypeId: google.maps.MapTypeId.ROADMAP,
-			center: latlng
-		};
-		id_name = 'google_map';
-
-		my_google_map = new google.maps.Map(document.getElementById(id_name), opts);
-
-		if(glat == 0){
-			var req = {
-				address: addr_name ,
-			};
-			my_google_geo.geocode(req, geoResultCallback);
-		} else {
-			var marker = new google.maps.Marker({
-				position: latlng,
-				map: my_google_map,
-				title:cowname
-				});
-		}
-}
 
 function googlemap_init( id_name, addr_name, lat, lng, cowname) {
 		if(lat == ''){
@@ -192,3 +144,11 @@ function geoResultCallback(result, status) {
 	});
 }
 
+function htmlspecialstrars_decode(str) {
+	str = str.replace("&amp;","&");
+	str = str.replace("&quot;",'"');
+	str = str.replace("&#039;","'");
+	str = str.replace("&lt;","<");
+	str = str.replace("&gt;",">");
+	return str;
+}
