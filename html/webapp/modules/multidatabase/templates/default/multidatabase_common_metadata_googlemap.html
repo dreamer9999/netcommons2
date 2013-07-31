@@ -15,7 +15,10 @@ $value = $mdblist['value'];
 //echo "<pre>";var_dump($metadata);echo "</pre>";
 $i = 0;
 $item_datas = array();
-echo "<pre>";count($metadata);echo "</pre>";
+
+$smarty = $this->get_template_vars('smarty');
+$smarty_session = $smarty['session'];
+
 foreach($metadata as $key => $val){
 	$item = $value[$i];
 	$content_id = $item['content_id'];
@@ -23,8 +26,9 @@ foreach($metadata as $key => $val){
 		$item_name = htmlspecialchars($item[1], ENT_QUOTES);
 		$item_address = htmlspecialchars($item[64].$item[65], ENT_QUOTES);
 		$item_latlng = str_replace(',' , '|', $item[94]);
-		$item_array_default = '%s,\'%s\',\'%s\',\'%s\'';
-		$item_array = sprintf($item_array_default, $content_id, $item_name, $item_address, $item_latlng);
+		$item_detail_url = BASE_URL.INDEX_FILE_NAME.'?active_action=multidatabase_view_main_detail&content_id='.$content_id.'&multidatabase_id='.$action['multidatabase_id'].'&block_id='.$action['block_id'].'#'.$smarty_session['_id'];
+		$item_array_default = '%s,\'%s\',\'%s\',\'%s\',\'%s\'';
+		$item_array = sprintf($item_array_default, $content_id, $item_name, $item_address, $item_latlng, $item_detail_url);
 	<{/php}>
 	<script type="text/javascript">
 	item["<{php}>echo $i;<{/php}>"]=new Array(<{php}>echo $item_array;<{/php}>);
