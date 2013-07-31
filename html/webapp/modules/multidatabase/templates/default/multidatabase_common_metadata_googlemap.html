@@ -1,12 +1,51 @@
 <{strip}>
 <script type="text/javascript">
+var item = new Array();
+var item_last;
+
+</script>
+<{php}>
+	$this->assign('test_array_str', $test_array_str);
+	$metadata = $this->get_template_vars('metadata');
+//echo "<br>metadata_id ".$metadata['metadata_id'];
+$action = $this->get_template_vars('action');
+$mdblist = $action['mdblist'];
+$metadata = $mdblist['metadata'][1];
+$value = $mdblist['value'];
+//echo "<pre>";var_dump($metadata);echo "</pre>";
+$i = 0;
+$item_datas = array();
+echo "<pre>";count($metadata);echo "</pre>";
+foreach($metadata as $key => $val){
+	$item = $value[$i];
+	$content_id = $item['content_id'];
+	if($content_id != ''){
+		$item_name = htmlspecialchars($item[1], ENT_QUOTES);
+		$item_address = htmlspecialchars($item[64].$item[65], ENT_QUOTES);
+		$item_latlng = str_replace(',' , '|', $item[94]);
+		$item_array_default = '%s,\'%s\',\'%s\',\'%s\'';
+		$item_array = sprintf($item_array_default, $content_id, $item_name, $item_address, $item_latlng);
+	<{/php}>
+	<script type="text/javascript">
+	item["<{php}>echo $i;<{/php}>"]=new Array(<{php}>echo $item_array;<{/php}>);
+	// --></script>
+	<{php}>
+		$i++;
+	}
+}
+<{/php}>
+<script type="text/javascript">
+item_last=<{php}>echo $i;<{/php}>;
+// --></script>
+
+<script type="text/javascript">
 var api_loaded_flag;
 var document_loaded_flag;
 
 function showMap(){
     if (api_loaded_flag == 1){
         if (document_loaded_flag == 1){
-            googlemap_init_alltest('google_map', jQuery('#google_map').attr('alt'), jQuery('#google_map').attr('lat'), jQuery('#google_map').attr('lng'), jQuery('#google_map').attr('cowname'));
+            googlemap_init_all('google_map');
         }
 	}
 }
@@ -18,11 +57,7 @@ function apiLoaded()
 }
 </script>
 <script src="http://maps.google.com/maps/api/js?v=3&sensor=false&callback=apiLoaded" type="text/javascript" charset="UTF-8"></script>
-
-<{php}>
-	$this->assign('googlemap_alt', "東京都江東区豊洲3-3-3");
-<{/php}>
-<{if $googlemap_alt != ''}>
+<span id="map_item" value="<{$action.mdblist.value}>"></span>
 <div id="google_map" style="margin-top:10px;margin-bottom:10px;text-align:center;width:100%;height:400px;" alt="<{$googlemap_alt}>" lat="<{$lat}>" lng="<{$lng}>" cowname="<{$cowname}>"></div>
 <div class="align-center">
 <{if $lat != ''}>
@@ -32,5 +67,4 @@ function apiLoaded()
 <{/if}>
 大きな地図で見る</a>
 </div>
-<{/if}>
 <{/strip}>
