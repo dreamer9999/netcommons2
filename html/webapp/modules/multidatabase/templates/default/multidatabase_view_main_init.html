@@ -43,18 +43,20 @@
 			<{php}>
 			$page_id = intval($_GET['page_id']);
 			$action = $this->get_template_vars('action');
+//echo "<pre>";var_dump($_SESSION['list_kind'][$action['multidatabase_id']]);echo "</pre>";
 			$mdblist = $action['mdblist'];
 			$items = $mdblist['value'];
-
 			$fileName = WEBAPP_DIR.'/modules/multidatabase/templates/'.$action['multidatabase_id'].'_'.$page_id.'_listview.php';
 			if (file_exists($fileName)) {
 			      require($fileName); // $listview_html = 'xxxxxxxx.html';
 			      $this->assign('listview_html', $listview_html);
+					//$_SESSION['list_kind'][$action['multidatabase_id']] = 'map';
 			<{/php}>
 			     <{include file=$listview_html}>
 				<{include file = "multidatabase_view_main_init_control.html" position="bottom"}>
 			<{php}>
 			} else {
+					//$_SESSION['list_kind'][$action['multidatabase_id']] = 'list';
 			<{/php}>
 				<{assign var="mode" value="list"}>
 				<{assign var="data_pos_1" value=$action.mdblist.metadata.1}>
