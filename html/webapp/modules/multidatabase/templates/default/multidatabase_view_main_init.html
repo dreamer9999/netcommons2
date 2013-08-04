@@ -43,20 +43,58 @@
 			<{php}>
 			$page_id = intval($_GET['page_id']);
 			$action = $this->get_template_vars('action');
-//echo "<pre>";var_dump($_SESSION['list_kind'][$action['multidatabase_id']]);echo "</pre>";
+//echo "<pre>page_id";var_dump($page_id);echo "</pre>";
+//	echo "<pre>";var_dump($_SESSION['list_kind'][$action['multidatabase_id']]);echo "</pre>";
 			$mdblist = $action['mdblist'];
 			$items = $mdblist['value'];
 			$fileName = WEBAPP_DIR.'/modules/multidatabase/templates/'.$action['multidatabase_id'].'_'.$page_id.'_listview.php';
+
+echo "<br>page_id=".$page_id;
+
+
+if (isset($_SERVER['HTTPS']) and $_SERVER['HTTPS'] == 'on'){
+$protocol = 'https://';
+} else { 
+$protocol = 'http://';
+} 
+$uri = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+echo "<br><div style=\"max-width:800px;\">".$uri."</div>";
+
+if(strpos($_SERVER['REQUEST_URI'], 'page_id=') === false){
+	// トップページで絞り込み無しなので一覧にリンク
+	$otherUrl = $uri.'?page_id=15';
+} else {
+	if(strpos($_SERVER['REQUEST_URI'], 'page_id=15') === false){
+		// 現在が地図なので一覧にリンク
+		$otherUrl = str_replace('page_id=13', 'page_id=15', $uri);
+	} else {
+		// 現在が一覧なので地図にリンク
+		$otherUrl = str_replace('page_id=15', 'page_id=13', $uri);
+	}
+}
+
+
+echo "<br><div style=\"max-width:800px;\">".$otherUrl."</div>";
+
+<{/php}><br><{php}>
+
 			if (file_exists($fileName)) {
-			      require($fileName); // $listview_html = 'xxxxxxxx.html';
-			      $this->assign('listview_html', $listview_html);
-					//$_SESSION['list_kind'][$action['multidatabase_id']] = 'map';
 			<{/php}>
-			     <{include file=$listview_html}>
+				<a href="itiran">一覧表示へ <{php}> echo $page_id;<{/php}></a>
+			<{php}>
+				  require($fileName); // $listview_html = 'xxxxxxxx.html';
+				  $this->assign('listview_html', $listview_html);
+					$_SESSION['list_kind'][$action['multidatabase_id']] = 'map';
+			<{/php}>
+				 <{include file=$listview_html}>
+				<a href="itiran">一覧表示へ</a>
 				<{include file = "multidatabase_view_main_init_control.html" position="bottom"}>
 			<{php}>
 			} else {
-					//$_SESSION['list_kind'][$action['multidatabase_id']] = 'list';
+			<{/php}>
+				<a href="tizu">地図表示へ <{php}> echo $page_id;<{/php}></a>
+			<{php}>
+					$_SESSION['list_kind'][$action['multidatabase_id']] = 'list';
 			<{/php}>
 				<{assign var="mode" value="list"}>
 				<{assign var="data_pos_1" value=$action.mdblist.metadata.1}>
@@ -68,6 +106,7 @@
 					<{include file="multidatabase_common_metadata.html"}>
 					<{* br / *}>
 				<{/foreach}>
+				<a href="tizu">地図表示へ</a>
 				<{include file = "multidatabase_view_main_init_control.html" position="bottom"}>
 			<{php}>
 			}

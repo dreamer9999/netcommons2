@@ -2,7 +2,6 @@
 <script type="text/javascript">
 var item = new Array();
 var item_last;
-
 </script>
 <{php}>
 	$this->assign('test_array_str', $test_array_str);
@@ -12,6 +11,7 @@ $action = $this->get_template_vars('action');
 $mdblist = $action['mdblist'];
 $metadata = $mdblist['metadata'][1];
 $value = $mdblist['value'];
+var_dump($value);
 //echo "<pre>";var_dump($metadata);echo "</pre>";
 $i = 0;
 $item_datas = array();
@@ -19,10 +19,17 @@ $item_datas = array();
 $smarty = $this->get_template_vars('smarty');
 $smarty_session = $smarty['session'];
 
+<{/php}>
+<script type="text/javascript">
+item = new Array();
+</script>
+<{php}>
 foreach($metadata as $key => $val){
 	$item = $value[$i];
 	$content_id = $item['content_id'];
+echo "<br>content_id=".var_dump($content_id);
 	if($content_id != ''){
+echo "<br>item_set!";
 		$item_name = htmlspecialchars($item[1], ENT_QUOTES);
 		$item_address = htmlspecialchars($item[64].$item[65], ENT_QUOTES);
 		$item_latlng = str_replace(',' , '|', $item[94]);
@@ -31,6 +38,7 @@ foreach($metadata as $key => $val){
 		$item_array = sprintf($item_array_default, $content_id, $item_name, $item_address, $item_latlng, $item_detail_url);
 	<{/php}>
 	<script type="text/javascript">
+console.log('item set ' + <{php}>echo $item_array;<{/php}>);
 	item["<{php}>echo $i;<{/php}>"]=new Array(<{php}>echo $item_array;<{/php}>);
 	// --></script>
 	<{php}>
