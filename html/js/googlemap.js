@@ -13,6 +13,7 @@ function googlemap_init_all(id_name) {
 	my_google_geo = new google.maps.Geocoder();
 	gi = -1;
 	max = item_last -1;
+console.log('item_last = ' + item_last);
 	for (i = 0; i < item_last; i++){
 		var each_item = item[i];
 //console.log('each_item1 ' + each_item[1]);
