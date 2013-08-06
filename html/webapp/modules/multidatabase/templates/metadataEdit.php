@@ -215,7 +215,7 @@ class metadataEdit
 				break;
 			case 'list_header':
 				// アイコンと概要を編集
-				$sprintfTemp = '<table><tr><td><img src="%s"></td><td valign="top"><div style="margin-left:10px;height:110px;">%s</div><div style="margin-left:10px;width:450px;float:left;line-height:40px;vertical-align:bottom;font-size:0.9em;">%s</div><div style="width:90px;float:left;line-height:40px;vertical-align:bottom;">%s</div><div style="clear:both;"></div><div style="margin-left:10px;">%s</div></td></tr></table>';
+				$sprintfTemp = '<table><tr><td style="width:190px;"><div style="width:190px;text-align:center">&nbsp;<img src="%s">&nbsp;</div></td><td valign="top"><div style="margin-left:10px;height:110px;">%s</div><div style="margin-left:10px;width:450px;float:left;line-height:40px;vertical-align:bottom;font-size:0.9em;">%s</div><div style="width:90px;float:left;line-height:40px;vertical-align:bottom;">%s</div><div style="clear:both;"></div><div style="margin-left:10px;">%s</div></td></tr></table>';
 				$len = 120;
 				// 概要
 				if(mb_strlen($this->item[4]) > $len){
@@ -241,7 +241,7 @@ class metadataEdit
 				if(($this->item[72] != '') and ($this->item[72] != 'http://')){
 					$list_link_buttons .= sprintf($link, $this->item[72], 'twitter-bird-white-on-blue.png');
 				}
-				
+				$list_link_buttons = '<div style="margin-left:10px;">'.$list_link_buttons.'</div>';
 				// list_buttons
 				// ドロップイン　月利用　コワーキングVISAボタン表示 74 75 87
 				$list_buttons = '';

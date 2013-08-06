@@ -49,50 +49,50 @@
 			$items = $mdblist['value'];
 			$fileName = WEBAPP_DIR.'/modules/multidatabase/templates/'.$action['multidatabase_id'].'_'.$page_id.'_listview.php';
 
-echo "<br>page_id=".$page_id;
 
 
-if (isset($_SERVER['HTTPS']) and $_SERVER['HTTPS'] == 'on'){
-$protocol = 'https://';
-} else { 
-$protocol = 'http://';
-} 
-$uri = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-echo "<br><div style=\"max-width:800px;\">".$uri."</div>";
+			if (isset($_SERVER['HTTPS']) and $_SERVER['HTTPS'] == 'on'){
+				$protocol = 'https://';
+			} else { 
+				$protocol = 'http://';
+			} 
+			$uri = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 
-if(strpos($_SERVER['REQUEST_URI'], 'page_id=') === false){
-	// トップページで絞り込み無しなので一覧にリンク
-	$otherUrl = $uri.'?page_id=15';
-} else {
-	if(strpos($_SERVER['REQUEST_URI'], 'page_id=15') === false){
-		// 現在が地図なので一覧にリンク
-		$otherUrl = str_replace('page_id=13', 'page_id=15', $uri);
-	} else {
-		// 現在が一覧なので地図にリンク
-		$otherUrl = str_replace('page_id=15', 'page_id=13', $uri);
-	}
-}
+			$uriArray = explode('?', $_SERVER['REQUEST_URI']); //'でもいい
+
+			if(strpos($_SERVER['REQUEST_URI'], 'page_id=') === false){
+				// トップページで絞り込み無しなので一覧にリンク
+				$otherUrl = $uri.'?page_id=15';
+			} else {
+				if(strpos($_SERVER['REQUEST_URI'], 'page_id=15') === false){
+					// 現在が地図なので一覧にリンク
+				// 条件付き保留	$otherUrl = str_replace('page_id=13', 'page_id=15', $uri);
+					$otherUrl = $protocol.$_SERVER['HTTP_HOST'].$uriArray[0].'?page_id=15';
+				} else {
+					// 現在が一覧なので地図にリンク
+				// 条件付き保留	$otherUrl = str_replace('page_id=15', 'page_id=13', $uri);
+					$otherUrl = $protocol.$_SERVER['HTTP_HOST'].$uriArray[0].'?page_id=13';
+				}
+			}
+			$this->assign('otherUrl', $otherUrl);
 
 
-echo "<br><div style=\"max-width:800px;\">".$otherUrl."</div>";
-
-<{/php}><br><{php}>
 
 			if (file_exists($fileName)) {
 			<{/php}>
-				<a href="itiran">一覧表示へ <{php}> echo $page_id;<{/php}></a>
+				<a href="<{$otherUrl}>">一覧表示へ</a>
 			<{php}>
 				  require($fileName); // $listview_html = 'xxxxxxxx.html';
 				  $this->assign('listview_html', $listview_html);
 					$_SESSION['list_kind'][$action['multidatabase_id']] = 'map';
 			<{/php}>
 				 <{include file=$listview_html}>
-				<a href="itiran">一覧表示へ</a>
+				<a href="<{$otherUrl}>">一覧表示へ</a>
 				<{include file = "multidatabase_view_main_init_control.html" position="bottom"}>
 			<{php}>
 			} else {
 			<{/php}>
-				<a href="tizu">地図表示へ <{php}> echo $page_id;<{/php}></a>
+				<a href="<{$otherUrl}>">地図表示へ</a>
 			<{php}>
 					$_SESSION['list_kind'][$action['multidatabase_id']] = 'list';
 			<{/php}>
@@ -106,7 +106,7 @@ echo "<br><div style=\"max-width:800px;\">".$otherUrl."</div>";
 					<{include file="multidatabase_common_metadata.html"}>
 					<{* br / *}>
 				<{/foreach}>
-				<a href="tizu">地図表示へ</a>
+				<a href="<{$otherUrl}>">地図表示へ</a>
 				<{include file = "multidatabase_view_main_init_control.html" position="bottom"}>
 			<{php}>
 			}
