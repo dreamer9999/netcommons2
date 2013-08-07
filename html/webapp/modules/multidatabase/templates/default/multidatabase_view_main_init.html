@@ -47,6 +47,7 @@
 //	echo "<pre>";var_dump($_SESSION['list_kind'][$action['multidatabase_id']]);echo "</pre>";
 			$mdblist = $action['mdblist'];
 			$items = $mdblist['value'];
+			$kensu = count($items);
 			$fileName = WEBAPP_DIR.'/modules/multidatabase/templates/'.$action['multidatabase_id'].'_'.$page_id.'_listview.php';
 
 
@@ -75,16 +76,16 @@
 				}
 			}
 			$this->assign('otherUrl', $otherUrl);
+			$this->assign('kensu', $kensu);
 
 
 
 			if (file_exists($fileName)) {
 			<{/php}>
-				<a href="<{$otherUrl}>">一覧表示へ</a>
+				<div style="float:left;text-align:left;width:80%;"><{$kensu}>件あります</div><div style="float:left;text-align:right;width:20%;"><a href="<{$otherUrl}>">一覧表示へ</a></div><div style="clear:both;"></div>
 			<{php}>
 				  require($fileName); // $listview_html = 'xxxxxxxx.html';
 				  $this->assign('listview_html', $listview_html);
-					$_SESSION['list_kind'][$action['multidatabase_id']] = 'map';
 			<{/php}>
 				 <{include file=$listview_html}>
 				<a href="<{$otherUrl}>">一覧表示へ</a>
@@ -92,10 +93,7 @@
 			<{php}>
 			} else {
 			<{/php}>
-				<a href="<{$otherUrl}>">地図表示へ</a>
-			<{php}>
-					$_SESSION['list_kind'][$action['multidatabase_id']] = 'list';
-			<{/php}>
+				<div style="float:left;text-align:left;width:80%;"><{$kensu}>件あります</div><div style="float:left;text-align:right;width:20%;"><a href="<{$otherUrl}>">地図表示へ</a></div><div style="clear:both;"></div>
 				<{assign var="mode" value="list"}>
 				<{assign var="data_pos_1" value=$action.mdblist.metadata.1}>
 				<{assign var="data_pos_2" value=$action.mdblist.metadata.2}>

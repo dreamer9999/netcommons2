@@ -1,9 +1,4 @@
 <{strip}>
-<script type="text/javascript">
-//var item = new Array();
-//var item_last;
-
-</script>
 <{php}>
 	$this->assign('test_array_str', $test_array_str);
 	$metadata = $this->get_template_vars('metadata');
@@ -44,26 +39,14 @@ foreach($metadata as $key => $val){
 </script>
 
 
-            <script type="text/javascript">
-item_last=<{php}>echo $i;<{/php}>;
-    console.log('set item_last'+item_last);
-
-function setJikan()
-{
-    jikan = "<{php}>echo date('H:i:s');<{/php}>";
-}
-    setJikan();
-//console.log('beta '+jikan);
-// --></script>
-
 <script type="text/javascript">
+item_last=<{php}>echo $i;<{/php}>;
 var api_loaded_flag;
 var document_loaded_flag;
 
 function showMap(){
     if (api_loaded_flag == 1){
         if (document_loaded_flag == 1){
-           console.log('in showmap '+item_last);
             googlemap_init_all('google_map');
         }
 	}
@@ -72,7 +55,6 @@ function showMap(){
 function apiLoaded()
 {
 	api_loaded_flag = 1;
-    console.log('in apiloaded  '+jikan);
 	showMap();
 }
 
