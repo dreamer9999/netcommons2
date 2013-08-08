@@ -39,7 +39,7 @@ $editFunction[63] = 'zip';
 $sprintfReplaceArray[63] = array(64, 65, 66);
 
 表示
-〒135-0061 東京都江東区豊洲３３３ 豊洲ビル3F
+〒135-0064 東京都江東区青海３３３ 青海ビル3F
 
 googlemap対応
 $googleMap = array(); // ここで指定した項目の次にgooglemapを表示する。指定するのは元となる住所の項目番号$googleMap[63] = array(64, 65);
@@ -216,6 +216,7 @@ class metadataEdit
 			case 'list_header':
 				// アイコンと概要を編集
 				$sprintfTemp = '<table><tr><td style="width:190px;"><div style="width:190px;text-align:center">&nbsp;<img src="%s">&nbsp;</div></td><td valign="top"><div style="margin-left:10px;height:110px;">%s</div><div style="margin-left:10px;width:450px;float:left;line-height:40px;vertical-align:bottom;font-size:0.9em;">%s</div><div style="width:90px;float:left;line-height:40px;vertical-align:bottom;">%s</div><div style="clear:both;"></div><div style="margin-left:10px;">%s</div></td></tr></table>';
+			//	$sprintfTemp = '<table><tr><td><img src="%s"></td><td valign="top"><div style="margin-left:10px;height:110px;">%s</div><div style="margin-left:10px;width:450px;float:left;line-height:40px;vertical-align:bottom;font-size:0.9em;">%s</div><div style="width:90px;float:left;line-height:40px;vertical-align:bottom;">%s</div><div style="clear:both;"></div><div style="margin-left:10px;">%s</div></td></tr></table>';
 				$len = 120;
 				// 概要
 				if(mb_strlen($this->item[4]) > $len){
