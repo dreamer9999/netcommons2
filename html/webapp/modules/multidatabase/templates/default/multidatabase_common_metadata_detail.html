@@ -87,7 +87,7 @@ if($metadataEdit->isDisplaySkipItem($mode, $multidatabase_id, $metadata_id)){
 <{* umoto編集フック *}>
 			<{/if}>
 <{if $isSkip == 0}>
-<tr style="max-width:750px;">
+<tr style="max-width:740px;">
 	<{if ($metadata.type != MULTIDATABASE_META_TYPE_IMAGE && $metadata.name_flag == _ON) || $mode == "regist" }>
 		<th class="mdb_detail_head nowrap <{if $position == 1 || $position == 4}>mdb_detail_head_top_bottom<{/if}> width_100px" scope="row">
 			<{if $mode == regist}><label for="mdb_metadatas_<{$metadata.metadata_id}><{$id}>"><{/if}>
@@ -106,7 +106,7 @@ if($metadataEdit->isDisplaySkipItem($mode, $multidatabase_id, $metadata_id)){
 		<td class="mdb_edit_detail" colspan="2">
 	<{else}>
 		<{if $position == 1 || $position == 4}>
-		<td class="mdb_edit_detail width_650px">
+		<td class="mdb_edit_detail width_640px">
 		<{else}>
 		<td class="mdb_edit_detail">
 		<{/if}>
@@ -150,7 +150,7 @@ if($metadataEdit->isDisplaySkipItem($mode, $multidatabase_id, $metadata_id)){
                 <{if $content == ""}>
                 <img src="<{""|get_image_url}><{$smarty.const.MULTIDATABASE_SAMPLE_IMAGE}>" class="mdb_metadata_image" alt="NO IMAGE" />
                 <{else}>
-                <img src="<{$content|smarty:nodefaults}>" id="image_url" style="width:750px;max-height:400px;">
+                <img src="<{$content|smarty:nodefaults}>" id="image_url" style="width:738px;max-height:400px;">
                 <{/if}>
 			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_WYSIWYG}>
 				<{$content|smarty:nodefaults|wysiwig_convert_url}>

@@ -3,6 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="a1daf2f1-7026-42b0-bab3-cb6c0702007c" name="Default" comment="デバッグ出力削除">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/webapp/modules/multidatabase/files/css/default/style.css" afterPath="$PROJECT_DIR$/html/webapp/modules/multidatabase/files/css/default/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata.html" afterPath="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata_detail.html" afterPath="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata_detail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_view_main_init.html" afterPath="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_view_main_init.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/metadataEdit.php" afterPath="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/metadataEdit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/webapp/style/css/common.css" afterPath="$PROJECT_DIR$/html/webapp/style/css/common.css" />
     </list>
     <ignored path="nc20m.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -22,10 +28,55 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="journal_view_main_item.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="journal_view_main_item.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/webapp/modules/journal/templates/default/journal_view_main_item.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="95" selection-start="3153" selection-end="3153" vertical-scroll-proportion="0.58914727">
+            <state line="46" column="95" selection-start="3153" selection-end="3153" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/files/css/default/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="69" column="1" selection-start="1378" selection-end="1378" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="multidatabase_common_metadata_detail.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata_detail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="108" column="35" selection-start="3925" selection-end="3925" vertical-scroll-proportion="2.6785715">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="multidatabase_common_metadata - コピー.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata - コピー.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="49" selection-start="1037" selection-end="1037" vertical-scroll-proportion="-3.5714285">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="multidatabase_common_metadata_detail - コピー.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata_detail - コピー.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="108" column="35" selection-start="3925" selection-end="3925" vertical-scroll-proportion="2.3214285">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="multidatabase_view_main_init.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_view_main_init.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="36" selection-start="173" selection-end="173" vertical-scroll-proportion="0.32853025">
               <folding />
             </state>
           </provider>
@@ -44,22 +95,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/html/webapp/modules/multidatabase/config/main.ini" />
-        <option value="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_mobile_metadata_detail.html" />
-        <option value="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_mobile_metadata_detail_feature.html" />
         <option value="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_mobile_metadata_detail_smart.html" />
         <option value="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_view_edit_metadata.html" />
         <option value="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_view_edit_metadata_detail.html" />
         <option value="$PROJECT_DIR$/html/webapp/modules/multidatabase/validator/Validator_MetadataInput.class.php" />
         <option value="$PROJECT_DIR$/html/googlemap.js" />
         <option value="$PROJECT_DIR$/html/webapp/templates/main/footer.html" />
-        <option value="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata_detail.html" />
         <option value="$PROJECT_DIR$/html/webapp/modules/multidatabase/files/js/default/multidatabase.js" />
         <option value="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata.html" />
-        <option value="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_view_main_init.html" />
         <option value="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata_googlemap.html" />
         <option value="$PROJECT_DIR$/html/webapp/style/css/common.css" />
         <option value="$PROJECT_DIR$/html/webapp/style/css/page_style.css" />
+        <option value="$PROJECT_DIR$/html/webapp/modules/multidatabase/files/css/default/style.css" />
+        <option value="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata - コピー.html" />
+        <option value="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata_detail - コピー.html" />
+        <option value="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata_detail.html" />
+        <option value="$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_view_main_init.html" />
       </list>
     </option>
   </component>
@@ -96,6 +147,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -190,13 +242,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="multidatabase" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nc20m" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ncgocow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="html" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="journal" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -307,7 +384,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="2" y="4" width="1337" height="819" extended-state="1" />
+    <frame x="2" y="4" width="1337" height="819" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32824427" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -386,21 +463,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="12" selection-start="2397" selection-end="2397" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/install.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="0" selection-start="765" selection-end="765" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/multidatabase_script.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="10" selection-start="478" selection-end="478" vertical-scroll-proportion="0.31908396" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_mobile_content_init.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -419,11 +481,6 @@
     <entry file="file://$PROJECT_DIR$/html/js/googlemap.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="26" selection-start="394" selection-end="394" vertical-scroll-proportion="0.045783132" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_view_main_init.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata_googlemap.html">
@@ -456,14 +513,44 @@
         <state line="679" column="1" selection-start="9966" selection-end="9966" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/files/css/default/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="216" column="1" selection-start="3856" selection-end="3856" vertical-scroll-proportion="0.42666668" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/webapp/modules/journal/templates/default/journal_view_main_item.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="95" selection-start="3153" selection-end="3153" vertical-scroll-proportion="0.58914727">
+        <state line="46" column="95" selection-start="3153" selection-end="3153" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/files/css/default/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="1" selection-start="1378" selection-end="1378" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata - コピー.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="49" selection-start="1037" selection-end="1037" vertical-scroll-proportion="-3.5714285">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata_detail - コピー.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="108" column="35" selection-start="3925" selection-end="3925" vertical-scroll-proportion="2.3214285">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="108" column="35" selection-start="3925" selection-end="3925" vertical-scroll-proportion="2.6785715">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_view_main_init.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="36" selection-start="173" selection-end="173" vertical-scroll-proportion="0.32853025">
           <folding />
         </state>
       </provider>

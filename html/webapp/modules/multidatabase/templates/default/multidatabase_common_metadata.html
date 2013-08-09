@@ -22,14 +22,18 @@ function apiLoaded()
 <script src="http://ajaxzip3.googlecode.com/svn/trunk/ajaxzip3/ajaxzip3.js" charset="UTF-8"></script>
 <{/if}>
 <span id="mdb_refresh_target<{$id}>"></span>
-<table style="max-width:753px" class="mdb_original_table" summary="">
+<table style="" class="mdb_original_table" summary="">
 	<{if $data_pos_1 != null}>
 		<tr>
 			<td class="valign-top align-left" <{if $data_pos_2 != null && $data_pos_3 != null}>colspan="2"<{/if}>>
-				<table class="width_750px" summary="">
+				<table class="" summary="">
 					<{assign var="position" value="1"}>
 					<{foreach item=metadata from=$data_pos_1}>
 						<{include file="multidatabase_common_metadata_detail.html"}>
+				<{if $metadata.metadata_id == 4 and $mode != "list"}>
+				</table>
+				<table class="mdb_original_table_detail">
+				<{/if}>
 					<{/foreach}>
 				</table>
 			</td>

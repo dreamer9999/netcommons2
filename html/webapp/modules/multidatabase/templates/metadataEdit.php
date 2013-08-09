@@ -267,7 +267,7 @@ class metadataEdit
 				break;
 			case 'detail_gaiyo':
 				// 詳細表示の概要　
-				$detail_gaiyo = '<div style="width:728px;background-color:#ffffff;padding:10px;font-size:1.1em;border:1px solid #ffbb40;">%s</div>';
+				$detail_gaiyo = '<div style="width:716px;background-color:#ffffff;padding:10px;font-size:1.1em;border:1px solid #ffbb40;">%s</div>';
 				return sprintf($detail_gaiyo,  nl2br($content));
 				break;
 
