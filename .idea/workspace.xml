@@ -25,7 +25,7 @@
       <file leaf-file-name="journal_view_main_item.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/webapp/modules/journal/templates/default/journal_view_main_item.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="95" selection-start="3153" selection-end="3153" vertical-scroll-proportion="0.5245478">
+            <state line="46" column="95" selection-start="3153" selection-end="3153" vertical-scroll-proportion="0.58914727">
               <folding />
             </state>
           </provider>
@@ -213,15 +213,15 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="123" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="914" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="908" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="914" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="117" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="113" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PublishConfig">
     <servers>
@@ -242,14 +242,14 @@
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
       <method />
     </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
     <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
       <JSDebuggerConfigurationSettings>
         <option name="engineId" value="embedded" />
         <option name="fileUrl" />
       </JSDebuggerConfigurationSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
     <list size="0" />
@@ -312,10 +312,10 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32824427" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40955365" sideWeight="0.67175573" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5473767" sideWeight="0.67175573" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29209083" sideWeight="0.67175573" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29678935" sideWeight="0.67175573" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -413,77 +413,57 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/files/js/default/multidatabase.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="4" selection-start="4" selection-end="4" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="4" selection-start="4" selection-end="4" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/js/googlemap.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="26" selection-start="394" selection-end="394" vertical-scroll-proportion="0.045783132">
-          <folding />
-        </state>
+        <state line="17" column="26" selection-start="394" selection-end="394" vertical-scroll-proportion="0.045783132" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_view_main_init.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata_googlemap.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="2" selection-start="2" selection-end="2" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="2" selection-start="2" selection-end="2" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/webapp/modules/pages/templates/default/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="29" selection-start="2073" selection-end="2075" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="40" column="29" selection-start="2073" selection-end="2075" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/webapp/style/themes/dotline/css/orange/page_style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="1" selection-start="81" selection-end="81" vertical-scroll-proportion="0.048101265">
-          <folding />
-        </state>
+        <state line="7" column="1" selection-start="81" selection-end="81" vertical-scroll-proportion="0.048101265" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="1" selection-start="802" selection-end="820" vertical-scroll-proportion="0.28443113">
-          <folding />
-        </state>
+        <state line="18" column="1" selection-start="802" selection-end="820" vertical-scroll-proportion="0.28443113" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/webapp/style/css/page_style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="184" selection-end="184" vertical-scroll-proportion="0.048101265">
-          <folding />
-        </state>
+        <state line="15" column="0" selection-start="184" selection-end="184" vertical-scroll-proportion="0.048101265" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/webapp/style/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="679" column="1" selection-start="9966" selection-end="9966" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="679" column="1" selection-start="9966" selection-end="9966" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/files/css/default/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="216" column="1" selection-start="3856" selection-end="3856" vertical-scroll-proportion="0.42666668">
-          <folding />
-        </state>
+        <state line="216" column="1" selection-start="3856" selection-end="3856" vertical-scroll-proportion="0.42666668" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/webapp/modules/journal/templates/default/journal_view_main_item.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="95" selection-start="3153" selection-end="3153" vertical-scroll-proportion="0.5245478">
+        <state line="46" column="95" selection-start="3153" selection-end="3153" vertical-scroll-proportion="0.58914727">
           <folding />
         </state>
       </provider>
