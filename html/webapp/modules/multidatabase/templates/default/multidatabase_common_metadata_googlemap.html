@@ -26,7 +26,13 @@ foreach($metadata as $key => $val){
 		$item_name = htmlspecialchars($item[1], ENT_QUOTES);
 		$item_address = htmlspecialchars($item[64].$item[65], ENT_QUOTES);
 		$item_latlng = str_replace(',' , '|', $item[94]);
-		$item_detail_url = BASE_URL.INDEX_FILE_NAME.'?active_action=multidatabase_view_main_detail&content_id='.$content_id.'&multidatabase_id='.$action['multidatabase_id'].'&block_id='.$action['block_id'].'#'.$smarty_session['_id'];
+		if($action['block_id'] == 11){
+			// トップの地図表示の時、強制的に一覧からの表示にする
+			$blockId = 16;
+		} else {
+			$blockId = $action['block_id'];
+		}
+		$item_detail_url = BASE_URL.INDEX_FILE_NAME.'?active_action=multidatabase_view_main_detail&content_id='.$content_id.'&multidatabase_id='.$action['multidatabase_id'].'&block_id='.$blockId.'#'.$smarty_session['_id'];
 		$item_array_default = '%s,\'%s\',\'%s\',\'%s\',\'%s\'';
 		$item_array = sprintf($item_array_default, $content_id, $item_name, $item_address, $item_latlng, $item_detail_url);
         echo "console.log('item set ' + " . $item_array . ");";

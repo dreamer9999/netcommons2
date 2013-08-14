@@ -65,7 +65,11 @@
 				// トップページで絞り込み無しなので一覧にリンク
 				$otherUrl = $uri.'?page_id=15';
 			} else {
+				$mapFlag = false;
 				if(strpos($_SERVER['REQUEST_URI'], 'page_id=15') === false){
+					$mapFlag = true;
+				}
+				if($mapFlag == true){
 					// 現在が地図なので一覧にリンク
 				// 条件付き保留	$otherUrl = str_replace('page_id=13', 'page_id=15', $uri);
 					$otherUrl = $protocol.$_SERVER['HTTP_HOST'].$uriArray[0].'?page_id=15';
