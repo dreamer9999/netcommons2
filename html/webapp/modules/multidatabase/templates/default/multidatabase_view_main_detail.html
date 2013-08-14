@@ -5,7 +5,14 @@
 		<{if strpos($id, MULTIDATABASE_REFERENCE_PREFIX_NAME)}>
 			<a href="#" title="<{$lang.mdb_back_list|smarty:nodefaults|sprintf:$action.mdb_obj.multidatabase_name}>" class="syslink" onclick="commonCls.sendView('<{$id}>', {action:'multidatabase_view_main_init', multidatabase_id:<{$action.mdb_obj.multidatabase_id}>}); return false;">
 		<{else}>
-			<a href="<{$smarty.const.BASE_URL}><{$smarty.const.INDEX_FILE_NAME}>?action=<{$smarty.const.DEFAULT_ACTION}>&amp;active_action=multidatabase_view_main_init&amp;multidatabase_id=<{$action.mdb_obj.multidatabase_id}>&amp;block_id=<{$block_id}>#<{$smarty.session._id}>" title="<{$lang.mdb_back_list|smarty:nodefaults|sprintf:$action.mdb_obj.multidatabase_name}>" class="syslink">
+			<{php}>
+			$action = $this->get_template_vars('action');
+			$multidatabase_id = $action['multidatabase_id'];
+			$sessionListPageId = $multidatabase_id.'_list_page_id';
+			$sessionListPageIdValue = $_SESSION[$sessionListPageId];
+			$this->assign('sessionListPageIdValue', $sessionListPageIdValue);
+			<{/php}>
+			<a href="<{$smarty.const.BASE_URL}><{$smarty.const.INDEX_FILE_NAME}>?page_id=<{$sessionListPageIdValue}>&action=<{$smarty.const.DEFAULT_ACTION}>&amp;active_action=multidatabase_view_main_init&amp;multidatabase_id=<{$action.mdb_obj.multidatabase_id}>&amp;block_id=<{$block_id}>#<{$smarty.session._id}>" title="<{$lang.mdb_back_list|smarty:nodefaults|sprintf:$action.mdb_obj.multidatabase_name}>" class="syslink">
 		<{/if}>
 			<{$action.mdb_obj.multidatabase_name}>
 		</a>

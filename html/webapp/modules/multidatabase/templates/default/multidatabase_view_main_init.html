@@ -43,13 +43,14 @@
 			<{php}>
 			$page_id = intval($_GET['page_id']);
 			$action = $this->get_template_vars('action');
+
 //echo "<pre>page_id";var_dump($page_id);echo "</pre>";
 //	echo "<pre>";var_dump($_SESSION['list_kind'][$action['multidatabase_id']]);echo "</pre>";
+//	echo "<pre>";var_dump($_GET);echo "</pre>";
 			$mdblist = $action['mdblist'];
 			$items = $mdblist['value'];
 			$kensu = count($items);
 			$fileName = WEBAPP_DIR.'/modules/multidatabase/templates/'.$action['multidatabase_id'].'_'.$page_id.'_listview.php';
-
 
 
 			if (isset($_SERVER['HTTPS']) and $_SERVER['HTTPS'] == 'on'){
@@ -59,11 +60,15 @@
 			} 
 			$uri = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 
-			$uriArray = explode('?', $_SERVER['REQUEST_URI']); //'でもいい
+			$uriArray = explode('?', $_SERVER['REQUEST_URI']); //
 
 			if(strpos($_SERVER['REQUEST_URI'], 'page_id=') === false){
 				// トップページで絞り込み無しなので一覧にリンク
-				$otherUrl = $uri.'?page_id=15';
+				if(strpos($_SERVER['REQUEST_URI'], '?') === false){
+					$otherUrl = $uri.'?page_id=15';
+				} else {
+					$otherUrl=str_replace('?', '?page_id=15&' ,$_SERVER['REQUEST_URI']);
+				}
 			} else {
 				$mapFlag = false;
 				if(strpos($_SERVER['REQUEST_URI'], 'page_id=15') === false){
@@ -84,7 +89,12 @@
 
 
 
+			$multidatabase_id = $action['multidatabase_id'];
+			$sessionListPageId = $multidatabase_id.'_list_page_id';
+			$this->assign('sessionListPageId', $sessionListPageId);
 			if (file_exists($fileName)) {
+				// 地図ページ一覧のページid
+				$_SESSION[$sessionListPageId] = 21;
 			<{/php}>
 				<div style="float:left;text-align:left;width:80%;"><{$kensu}>件あります</div><div style="float:left;text-align:right;width:20%;"><a href="<{$otherUrl}>">一覧表示へ</a></div><div style="clear:both;"></div>
 			<{php}>
@@ -96,6 +106,8 @@
 				<{include file = "multidatabase_view_main_init_control.html" position="bottom"}>
 			<{php}>
 			} else {
+				// リストページ一覧のページid
+				$_SESSION[$sessionListPageId] = 15;
 			<{/php}>
 				<div style="float:left;text-align:left;width:80%;"><{$kensu}>件あります</div><div style="float:left;text-align:right;width:20%;"><a href="<{$otherUrl}>">地図表示へ</a></div><div style="clear:both;"></div>
 				<{assign var="mode" value="list"}>
