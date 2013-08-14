@@ -228,41 +228,27 @@ class metadataEdit
 				$address .= ' '.$this->item[64].$this->item[65].$this->item[66];
 
 				// リンクボタン
-				$link = '<a href="%s" target="_blank"><img src="images/multidatabase/%s" style="width:20px;"></a>&nbsp;';
-				// home
-				if(($this->item[7] != '') and ($this->item[7] != 'http://')){
-					$list_link_buttons = sprintf($link, $this->item[7], 'web.jpg');
-				}
-				// facebook
-				if(($this->item[62] != '') and ($this->item[62] != 'http://')){
-					$list_link_buttons .= sprintf($link, $this->item[62], 'facebook.png');
-				}
-				// twitter
-				if(($this->item[72] != '') and ($this->item[72] != 'http://')){
-					$list_link_buttons .= sprintf($link, $this->item[72], 'twitter-bird-white-on-blue.png');
-				}
+				$list_link_buttons = $this->_getLinkButtons();
 				$list_link_buttons = '<div style="margin-left:10px;">'.$list_link_buttons.'</div>';
 				// list_buttons
 				// ドロップイン　月利用　コワーキングVISAボタン表示 74 75 87
-				$list_buttons = '';
-				$listSprintfTemp = '<img src="images/multidatabase/%s">&nbsp;';
-				
-				if($this->item[74] == 'あり'){
-					$list_buttons .= sprintf($listSprintfTemp, 'dropin_30_100.gif');
-				}
-				if($this->item[75] == 'あり'){
-					$list_buttons .= sprintf($listSprintfTemp, 'monthly_30_100.gif');
-				}
-				if($this->item[87] == '加入'){
-					$list_buttons .= sprintf($listSprintfTemp, 'visa_30_150.gif');
-				}
+				$list_buttons = $this->_getKindButtons('30_100', '30_100', '30_150');
 				
 				return sprintf($sprintfTemp, $content, $gaiyo, $address, $list_link_buttons, $list_buttons);
 				break;
 			case 'detail_title':
 				// 詳細表示のタイトル　アイコン＋タイトル
-				$detail_title = '<div class="float-left"><img src="%s" style="width:100px"></div><div class="float-left valign-middle" style="line-height:100px;padding-left:10px;font-weight:bold;font-size:1.3em;">%s<div class="float-clear"></div>';
-				return sprintf($detail_title, $this->item[95], $content);
+				//$detail_title = '<div class="float-left"><img src="%s" style="width:100px"></div><div class="float-left valign-middle" style="line-height:100px;padding-left:10px;font-weight:bold;font-size:1.3em;">%s</div>aaaaaaa<div class="float-clear"></div>';
+				$detail_title = '<div class="float-left"><img src="%s" style="width:100px"></div><div class="float-left" style="width:618px;padding-top:20px;height:35px;line-height:55px;padding-left:10px;font-weight:bold;font-size:1.3em;">%s</div>
+<div class="float-left" style="width:618px;padding-top:20px;height:25px;padding-left:10px;">%s%s</div>
+								<div class="float-clear"></div>';
+				// link buttons
+				$linkButtons = $this->_getLinkButtons();
+				$linkButtons = '<div style="margin-left:10px;float:right;">'.$linkButtons.'</div>';
+				// kind buttons
+				$kindButtons = $this->_getKindButtons('20_70', '20_70', '20_100');
+				$kindButtons = '<div style="float:right;">'.$kindButtons.'</div>';
+				return sprintf($detail_title, $this->item[95], $content, $linkButtons, $kindButtons);
 				break;
 			case 'detail_gaiyo':
 				// 詳細表示の概要　
@@ -271,5 +257,43 @@ class metadataEdit
 				break;
 
 		}
+	}
+	
+	protected function _getLinkButtons()
+	{
+		$link_buttons = '';
+		// home,facebook,twitterのリンクボタンを作る
+		$link = '<a href="%s" target="_blank"><img src="images/multidatabase/%s" style="width:20px;"></a>&nbsp;';
+		// home
+		if(($this->item[7] != '') and ($this->item[7] != 'http://')){
+			$link_buttons = sprintf($link, $this->item[7], 'web.jpg');
+		}
+		// facebook
+		if(($this->item[62] != '') and ($this->item[62] != 'http://')){
+			$link_buttons .= sprintf($link, $this->item[62], 'facebook.png');
+		}
+		// twitter
+		if(($this->item[72] != '') and ($this->item[72] != 'http://')){
+			$link_buttons .= sprintf($link, $this->item[72], 'twitter-bird-white-on-blue.png');
+		}
+		return $link_buttons;
+	}
+	
+	protected function _getKindButtons($dropinSize, $monthlySize, $visaSize)
+	{
+		// ドロップイン　月利用　コワーキングVISAボタン表示 74 75 87
+		$kindButtons = '';
+		$sprintfTemp = '<img src="images/multidatabase/%s">&nbsp;';
+		
+		if($this->item[74] == 'あり'){
+			$kindButtons .= sprintf($sprintfTemp, 'dropin_'.$dropinSize.'.gif');
+		}
+		if($this->item[75] == 'あり'){
+			$kindButtons .= sprintf($sprintfTemp, 'monthly_'.$monthlySize.'.gif');
+		}
+		if($this->item[87] == '加入'){
+			$kindButtons .= sprintf($sprintfTemp, 'visa_'.$visaSize.'.gif');
+		}
+		return $kindButtons;
 	}
 }
