@@ -104,9 +104,9 @@
 		<{if strpos($id, MULTIDATABASE_REFERENCE_PREFIX_NAME)}>
 			<input class="btn-width" type="button" value="<{$lang._back_to_list}>" onclick="commonCls.sendView('<{$id}>', {action:'multidatabase_view_main_init', multidatabase_id:<{$action.mdb_obj.multidatabase_id}>});" />
 		<{elseif $action.search == _ON}>
-			<input class="btn-width" type="button" value="<{$lang._back_to_list}>" onclick="location.href='<{$smarty.const.BASE_URL}><{$smarty.const.INDEX_FILE_NAME}>?action=<{$smarty.const.DEFAULT_ACTION}>&amp;active_action=multidatabase_view_main_search_result&amp;multidatabase_id=<{$action.mdb_obj.multidatabase_id}>&amp;block_id=<{$block_id}>&amp;back=<{$smarty.const._ON}>#<{$smarty.session._id}>';return false;" />
+			<input class="btn-width" type="button" value="<{$lang._back_to_list}>" onclick="location.href='<{$smarty.const.BASE_URL}><{$smarty.const.INDEX_FILE_NAME}>?page_id=<{$sessionListPageIdValue}>&action=<{$smarty.const.DEFAULT_ACTION}>&amp;active_action=multidatabase_view_main_search_result&amp;multidatabase_id=<{$action.mdb_obj.multidatabase_id}>&amp;block_id=<{$block_id}>&amp;back=<{$smarty.const._ON}>#<{$smarty.session._id}>';return false;" />
 		<{else}>
-			<input class="btn-width" type="button" value="<{$lang._back_to_list}>" onclick="location.href='<{$smarty.const.BASE_URL}><{$smarty.const.INDEX_FILE_NAME}>?action=<{$smarty.const.DEFAULT_ACTION}>&amp;active_action=multidatabase_view_main_init&amp;multidatabase_id=<{$action.mdb_obj.multidatabase_id}>&amp;block_id=<{$block_id}>#<{$smarty.session._id}>';return false;" />
+			<input class="btn-width" type="button" value="<{$lang._back_to_list}>" onclick="location.href='<{$smarty.const.BASE_URL}><{$smarty.const.INDEX_FILE_NAME}>?page_id=<{$sessionListPageIdValue}>&action=<{$smarty.const.DEFAULT_ACTION}>&amp;active_action=multidatabase_view_main_init&amp;multidatabase_id=<{$action.mdb_obj.multidatabase_id}>&amp;block_id=<{$block_id}>#<{$smarty.session._id}>';return false;" />
 		<{/if}>
 	</div>
 </div>
