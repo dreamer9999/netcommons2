@@ -78,6 +78,7 @@ if(is_array($rec_sets) && isset($rec_sets[0])) {
 		($timestamp==_str2Time($_SERVER['HTTP_IF_MODIFIED_SINCE'])))
 	    ){
 	    	header('HTTP/1.1 304 Not Modified'); 
+		header("Content-type: text/css; charset=UTF-8");
 			exit;
 	}
 	header("Content-type: text/css; charset=UTF-8");
