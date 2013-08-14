@@ -74,13 +74,14 @@ if($result === false) {
 list($rec_sets, $max_update_time) = $result;
 if(is_array($rec_sets) && isset($rec_sets[0])) {
 	$timestamp = mktime(substr($max_update_time, 8,2), substr($max_update_time, 10,2), substr($max_update_time, 12,2), substr($max_update_time, 4,2), substr($max_update_time, 6,2), substr($max_update_time, 0,4));
+	/*
 	if((!empty($_SERVER['HTTP_IF_MODIFIED_SINCE']) && 
 		($timestamp==_str2Time($_SERVER['HTTP_IF_MODIFIED_SINCE'])))
 	    ){
-	    	header('HTTP/1.1 304 Not Modified'); 
 		header("Content-type: text/css; charset=UTF-8");
+	    	header('HTTP/1.1 304 Not Modified'); 
 			exit;
-	}
+	}*/
 	header("Content-type: text/css; charset=UTF-8");
 	// 有効期限セット（100日）
 	$offset = 100 * 24 * 60 * 60;
