@@ -16,40 +16,20 @@ function googlemap_init_all(id_name) {
 console.log('item_last = ' + item_last);
 	for (i = 0; i < item_last; i++){
 		var each_item = item[i];
-//console.log('each_item1 ' + each_item[1]);
-console.log('each_item2 ' + each_item[2]);
 		cowname[i] = each_item[1];
 		content_id[i] = each_item[0];
 		detail_url[i] = each_item[4];
-		my_google_geo.geocode(
-		  {
-		    'address': each_item[2],
-		    'language': 'ja'
-		  },
-		  function(results, status){
-		    if(status==google.maps.GeocoderStatus.OK){
-		       var p = results[0].geometry.location;
-				make_all_map_pre(each_item, p.lat(), p.lng(), max);
-		    }
-		  }
-		);
+		make_all_map_pre(each_item, max);
 	}
 
 }
 
-function make_all_map_pre(data, lat, lng, max)
+function make_all_map_pre(data, max)
 {
 	gi++;
-
-	if(data[3] != ''){
-		var latlng = data[3].split('|');
-		glat[gi] = latlng[0];
-		glng[gi] = latlng[1];
-	} else {
-		glat[gi] = lat;
-		glng[gi] = lng;
-	}
-	// 全てのlatlngが取得されたかどうか？
+	var latlng = data[3].split('|');
+	glat[gi] = latlng[0];
+	glng[gi] = latlng[1];
 	
 	if(gi == max){
 		make_all_map(max);
