@@ -6,6 +6,7 @@
     $mdblist = $action['mdblist'];
     $metadata = $mdblist['metadata'][1];
     $value = $mdblist['value'];
+
     $i = 0;
     $item_datas = array();
 
@@ -19,7 +20,8 @@ item = new Array();
 
 <script type="text/javascript">
 <{php}>
-foreach($metadata as $key => $val){
+
+foreach($value as $key => $val){
 	$item = $value[$i];
 	$content_id = $item['content_id'];
 	if($content_id != ''){
@@ -36,6 +38,7 @@ foreach($metadata as $key => $val){
 		$item_array_default = '%s,\'%s\',\'%s\',\'%s\',\'%s\'';
 		$item_array = sprintf($item_array_default, $content_id, $item_name, $item_address, $item_latlng, $item_detail_url);
         echo "console.log('item set ' + " . $item_array . ");";
+        echo "console.log('i=' + $i);";
         echo "	item[\"".  $i . "\"]=new Array(".  $item_array . ");";
 		$i++;
 	}
