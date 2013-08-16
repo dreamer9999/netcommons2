@@ -30,6 +30,7 @@ $metadata = $this->get_template_vars('metadata');
 $metadata_id = $this->get_template_vars('metadata_id');
 $item = $this->get_template_vars('item');
 $content = $this->get_template_vars('content');
+$block_id = $this->get_template_vars('block_id');
 
 require_once(MODULE_DIR.'/multidatabase/templates/metadataEdit.php');
 
@@ -40,7 +41,7 @@ if($metadataEdit->isDisplaySkipItem($mode, $multidatabase_id, $metadata_id)){
 	$this->assign('isSkip', 1);
 } else {
 // 編集
-	$content = $metadataEdit->edit($mode, $item, $multidatabase_id, $metadata_id);
+	$content = $metadataEdit->edit($mode, $item, $multidatabase_id, $metadata_id, $block_id);
 	// type置き換え？
 	if($metadataEdit->type != ''){
 		$metadata['type'] = $metadataEdit->type;

@@ -83,7 +83,7 @@ class metadataEdit
 		}
 	}
 
-	public function edit($mode, $item, $multidatabase_id, $metadata_id)
+	public function edit($mode, $item, $multidatabase_id, $metadata_id, $block_id)
 	{
 		$this->replaceName = '';
 		$this->googleMapAlt = '';
@@ -141,7 +141,7 @@ class metadataEdit
 					$option = $editFunctionOption[$metadata_id];
 				}
 				$this->item = $item;
-				$content = $this->_editFunction($content, $editFunction[$metadata_id], $option);
+				$content = $this->_editFunction($content, $editFunction[$metadata_id], $option, $multidatabase_id, $block_id);
 			}
 			
 			// その項目以外を使った編集指示
@@ -204,7 +204,7 @@ class metadataEdit
 	}
 
 
-	protected function _editFunction($content, $kind, $option)
+	protected function _editFunction($content, $kind, $option, $multidatabase_id, $block_id)
 	{
 		switch($kind){
 			case 'zip':
@@ -215,8 +215,11 @@ class metadataEdit
 				break;
 			case 'list_header':
 				// アイコンと概要を編集
-				$sprintfTemp = '<table><tr><td style="width:190px;"><div style="width:190px;text-align:center" name="list_icon">&nbsp;<img src="%s">&nbsp;</div></td><td valign="top"><div style="margin-left:10px;height:110px;width:538px;" name="list_gaiyo">%s</div><div style="margin-left:10px;width:450px;float:left;line-height:40px;vertical-align:bottom;font-size:0.9em;" name="list_address_linkicon">%s</div><div style="width:80px;float:left;height:30px;padding-top:10px;">%s</div><div style="clear:both;"></div><div style="margin-left:10px;" name="list_kind">%s</div></td></tr></table>';
+				$sprintfTemp = '<table><tr><td style="width:190px;"><div style="width:190px;text-align:center" name="list_icon">&nbsp;<a href="%s"><img src="%s"></a>&nbsp;</div></td><td valign="top"><div style="margin-left:10px;height:110px;width:538px;" name="list_gaiyo">%s</div><div style="margin-left:10px;width:450px;float:left;line-height:40px;vertical-align:bottom;font-size:0.9em;" name="list_address_linkicon">%s</div><div style="width:80px;float:left;height:30px;padding-top:10px;">%s</div><div style="clear:both;"></div><div style="margin-left:10px;" name="list_kind">%s</div></td></tr></table>';
 				$len = 120;
+
+				$detail_url = BASE_URL.INDEX_FILE_NAME.'?active_action=multidatabase_view_main_detail&content_id='.$this->item['content_id'].'&multidatabase_id='.$multidatabase_id.'&block_id='.$block_id.'#';
+
 				// 概要
 				if(mb_strlen($this->item[4]) > $len){
 					$gaiyo = nl2br(mb_substr($this->item[4], 0, $len)).' …';
@@ -234,7 +237,7 @@ class metadataEdit
 				// ドロップイン　月利用　コワーキングVISAボタン表示 74 75 87
 				$list_buttons = $this->_getKindButtons('30_100', '30_100', '30_150');
 				
-				return sprintf($sprintfTemp, $content, $gaiyo, $address, $list_link_buttons, $list_buttons);
+				return sprintf($sprintfTemp, $detail_url, $content, $gaiyo, $address, $list_link_buttons, $list_buttons);
 				break;
 			case 'detail_title':
 				// 詳細表示のタイトル　アイコン＋タイトル
