@@ -122,7 +122,7 @@ if($metadataEdit->isDisplaySkipItem($mode, $multidatabase_id, $metadata_id)){
 		<{elseif $mode == "list" || $mode == "detail"}>
 			<{* 一覧用 *}>
 			<{if $metadata.type == 99}>
-				<{$content|smarty:nodefaults}>
+				<{$content|smarty:nodefaults|auto_link}>
 
 			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_FILE}>
 				<{if $content == ""}>
@@ -156,7 +156,7 @@ if($metadataEdit->isDisplaySkipItem($mode, $multidatabase_id, $metadata_id)){
 			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_WYSIWYG}>
 				<{$content|smarty:nodefaults|wysiwig_convert_url}>
 			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_TEXTAREA}>
-				<{$content|change_tex|nl2br}>
+				<{$content|change_tex|nl2br|auto_link}>
 			<{elseif $metadata.type == MULTIDATABASE_META_TYPE_TEXT}>
 				<{if $action.mdb_obj.title_metadata_id == $metadata.metadata_id}>
 					<span style="font-weight:bold;font-size:1.3em;">
