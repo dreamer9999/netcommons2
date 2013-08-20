@@ -29,6 +29,10 @@ $multidatabase_id = $this->get_template_vars('multidatabase_id');
 $metadata = $this->get_template_vars('metadata');
 $metadata_id = $this->get_template_vars('metadata_id');
 $item = $this->get_template_vars('item');
+//echo "<pre>";var_dump($item);echo "</pre>";
+//echo "<br>".$item['update_time']." ";
+//echo "<br>".date('Y-m-d H:i:s', $item['update_time']);
+//echo "<br>".date('Y-m-d H:i:s', strtotime($item['update_time']));
 $content = $this->get_template_vars('content');
 $block_id = $this->get_template_vars('block_id');
 

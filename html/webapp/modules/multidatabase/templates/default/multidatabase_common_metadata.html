@@ -98,6 +98,7 @@ function apiLoaded()
 	<{/if}>
 	<{if $action.mdb_obj.active_flag == $smarty.const._ON}>
 		<{if $mode == "detail"}>
+最終更新日時:<{$item.update_time|date_format:"%Y-%m-%d %H:%M:%S"}>&nbsp;
 			<{$lang.mdb_detail_writer|smarty:nodefaults}>
 			<a class="syslink" href="#" title="<{if $smarty.session._login_id == ''}><{$lang.mdb_detail_writer_title|smarty:nodefaults|sprintf:$item.insert_user_name}><{else}><{$lang._user_title|smarty:nodefaults|sprintf:$item.insert_user_name}><{/if}>" onclick="commonCls.showUserDetail(event, '<{$item.insert_user_id}>'); return false;">
 				<{$item.insert_user_name}>
