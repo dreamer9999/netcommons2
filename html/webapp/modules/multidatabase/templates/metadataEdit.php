@@ -217,6 +217,9 @@ class metadataEdit
 				// アイコンと概要を編集
 				$sprintfTemp = '<table><tr><td style="width:190px;"><div style="width:190px;text-align:center" name="list_icon">&nbsp;<a href="%s"><img src="%s"></a>&nbsp;</div></td><td valign="top"><div style="margin-left:10px;height:110px;width:538px;" name="list_gaiyo">%s</div><div style="margin-left:10px;width:450px;float:left;line-height:40px;vertical-align:bottom;font-size:0.9em;" name="list_address_linkicon">%s</div><div style="width:80px;float:left;height:30px;padding-top:10px;">%s</div><div style="clear:both;"></div><div style="margin-left:10px;" name="list_kind">%s</div></td></tr></table>';
 				$len = 120;
+				if(strlen($content) < 1){
+					$content = BASE_URL.'/images/multidatabase/noimage.gif';
+				}
 
 				$detail_url = BASE_URL.INDEX_FILE_NAME.'?active_action=multidatabase_view_main_detail&content_id='.$this->item['content_id'].'&multidatabase_id='.$multidatabase_id.'&block_id='.$block_id.'#';
 
