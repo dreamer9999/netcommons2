@@ -31,10 +31,46 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="modifier.escape.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="modifier.escape.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/maple/smarty/plugins/modifier.escape.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Addmetadata.class.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/action/edit/addmetadata/Addmetadata.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="83" column="29" selection-start="2353" selection-end="2353" vertical-scroll-proportion="3.392857">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="assignment_view_main_comment.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/html/webapp/modules/assignment/templates/default/assignment_view_main_comment.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="24" selection-start="615" selection-end="702" vertical-scroll-proportion="0.31236443">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Mail.class.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/action/main/mail/Mail.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="77" column="53" selection-start="2667" selection-end="2667" vertical-scroll-proportion="-34.035713">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Action.class.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/components/Action.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="419" column="57" selection-start="11355" selection-end="11355" vertical-scroll-proportion="-6.642857">
               <folding />
             </state>
           </provider>
@@ -316,12 +352,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="2" y="4" width="1337" height="819" extended-state="1" />
-    <editor active="true" />
+    <frame x="2" y="4" width="1337" height="819" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16488549" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5473767" sideWeight="0.8351145" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.559906" sideWeight="0.8351145" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30148786" sideWeight="0.8351145" order="2" side_tool="false" content_ui="combo" />
@@ -395,28 +431,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/html/webapp/modules/journal/templates/default/journal_view_main_item.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="95" selection-start="3153" selection-end="3153" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/files/css/default/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="1" selection-start="1378" selection-end="1378" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_common_metadata_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="35" selection-start="3925" selection-end="3925" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/templates/default/multidatabase_view_main_init.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="14" selection-start="192" selection-end="192" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/maple/core/Session.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="54" column="20" selection-start="1395" selection-end="1395" vertical-scroll-proportion="0.04909561" />
@@ -495,6 +509,34 @@
     <entry file="file://$PROJECT_DIR$/html/maple/smarty/plugins/modifier.escape.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/action/main/mail/Mail.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="53" selection-start="2667" selection-end="2667" vertical-scroll-proportion="-34.035713">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/components/Action.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="419" column="57" selection-start="11355" selection-end="11355" vertical-scroll-proportion="-6.642857">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/webapp/modules/multidatabase/action/edit/addmetadata/Addmetadata.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="29" selection-start="2353" selection-end="2353" vertical-scroll-proportion="3.392857">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/webapp/modules/assignment/templates/default/assignment_view_main_comment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="24" selection-start="615" selection-end="702" vertical-scroll-proportion="0.31236443">
           <folding />
         </state>
       </provider>
